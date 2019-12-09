@@ -1,25 +1,32 @@
 /* eslint no-undef: 0 */
-const template = document.createElement('template');
-template.innerHTML = `
-<basics></basics>
-<work></work>
-<volunteer></volunteer>
-<education></education>
-<awards></awards>
-<publications></publications>
+const defaultTemplate = document.createElement('template');
+defaultTemplate.innerHTML = `
+<contact></contact>
+<about></about>
+<profiles></profiles>
 <skills></skills>
-<languages</languages>
+<work></work>
+<projects></projects>
+<education></education>
+<publications></publications>
+<awards></awards>
+<volunteer></volunteer>
+<languages></languages>
 <interests></interests>
 <references></references>
-<projects></projects>
 <meta></meta>
 `;
 
 export class WCResume extends HTMLElement {
   constructor () {
     super();
-    this.appendChild(template.content.cloneNode(true));
     this.__data = null;
+  }
+
+  connectedCallback () {
+    if (this.innerHTML === '') {
+      this.appendChild(defaultTemplate.content.cloneNode(true));
+    };
   }
 
   static get observedAttributes () {
