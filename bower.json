@@ -1,0 +1,13 @@
+{
+  "name": "@vanillawc/wc-resume",
+  "authors": [
+    "Evan Plaice <evanplaice@gmail.com> (http://evanplaice.com/)"
+  ],
+  "keywords": [
+    "web-components",
+    "vanilla",
+    "resume"
+  ],
+  "license": "MIT",
+  "dependencies": {}
+}
