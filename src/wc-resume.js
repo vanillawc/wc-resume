@@ -13,23 +13,6 @@ import './sections/wc-languages.js';
 import './sections/wc-interests.js';
 import './sections/wc-references.js';
 
-const defaultTemplate = document.createElement('template');
-defaultTemplate.innerHTML = `
-<wc-contact></wc-contact>
-<wc-about></wc-about>
-<wc-profiles></wc-profiles>
-<wc-skills></wc-skills>
-<wc-work></wc-work>
-<wc-projects></wc-projects>
-<wc-education></wc-education>
-<wc-publications></wc-publications>
-<wc-awards></wc-awards>
-<wc-volunteer></wc-volunteer>
-<wc-languages></wc-languages>
-<wc-interests></wc-interests>
-<wc-references></wc-references>
-`;
-
 export class WCResume extends HTMLElement {
   constructor () {
     super();
@@ -38,7 +21,9 @@ export class WCResume extends HTMLElement {
 
   connectedCallback () {
     if (this.innerHTML === '') {
-      this.appendChild(defaultTemplate.content.cloneNode(true));
+      const template = document.createElement('template');
+      template.innerHTML = WCResume.default();
+      this.appendChild(template.content.cloneNode(true));
     }
   }
 
@@ -86,6 +71,23 @@ export class WCResume extends HTMLElement {
     this.querySelector('wc-languages').data = data.languages;
     this.querySelector('wc-interests').data = data.interests;
     this.querySelector('wc-references').data = data.references;
+  }
+
+  static default () {
+    return `
+      <wc-contact></wc-contact>
+      <wc-about></wc-about>
+      <wc-profiles></wc-profiles>
+      <wc-skills></wc-skills>
+      <wc-work></wc-work>
+      <wc-projects></wc-projects>
+      <wc-education></wc-education>
+      <wc-publications></wc-publications>
+      <wc-awards></wc-awards>
+      <wc-volunteer></wc-volunteer>
+      <wc-languages></wc-languages>
+      <wc-interests></wc-interests>
+      <wc-references></wc-references>`;
   }
 }
 
