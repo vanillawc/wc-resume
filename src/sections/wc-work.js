@@ -32,11 +32,11 @@ export class WCWork extends HTMLElement {
       <div>
         ${jobs.map(job => `
           <div>
-            <h3><a href="${job.url}">${job.name}</a></h3>
-            <div>${job.position}</div>
-            <div>${job.description}</div>
+            <div style="float:left; font-weight: bold">${job.name}, ${job.position}</div>
+            <div style="float:right;">${job.startDate} - ${job.endDate}</div>
+            <div style="clear:both"><a href="${job.url}">${job.url}</a></div>
             <div>${job.location}</div>
-            <div>${job.startDate} - ${job.endDate}</div>
+            <div>${job.description}</div>      
             <div>${job.summary}</div>
             <ul>
               ${job.highlights.map(highlight => `
