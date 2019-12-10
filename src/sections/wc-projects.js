@@ -31,8 +31,9 @@ export class WCProjects extends HTMLElement {
       <section id="projects">
         ${projects.map(project => `
           <div>
-            <h3><a href="${project.url}">${project.name}</a> (${project.type})</h3>
-            <div>${project.startDate} - ${project.endDate}</div>
+            <div style="float:left; font-weight: bold">${project.name} (${project.type})</div>
+            <div style="float:right;">${project.startDate} - ${project.endDate}</div>
+            <div style="clear:both"><a href="${project.url}">${project.url}</a></div>
             <div>${project.description}</div>
             <div>${project.entity}</div>
             <div>${project.roles.join(', ')}</div>
