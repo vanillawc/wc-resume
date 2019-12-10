@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCLanguages extends HTMLElement {
   constructor () {
     super();
+    this.id = 'languages';
     this.__data = null;
     this.__template = null;
   }
@@ -28,12 +29,9 @@ export class WCLanguages extends HTMLElement {
 
   static default ({ languages }) {
     return `
-      <section id="languages">
-        ${languages.map(language => `
-          <div><span style="font-weight: bold">${language.language} (${language.fluency})</div>
-        `).join('\n')}
-
-      </section>
+      ${languages.map(language => `
+        <div><span style="font-weight: bold">${language.language} (${language.fluency})</div>
+      `).join('\n')}
       <hr>`;
   }
 }

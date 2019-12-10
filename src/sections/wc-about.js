@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCAbout extends HTMLElement {
   constructor () {
     super();
+    this.id = 'about';
     this.__data = null;
     this.__template = null;
   }
@@ -28,9 +29,7 @@ export class WCAbout extends HTMLElement {
 
   static default ({ summary }) {
     return `
-      <section id="about">
-        <div>${summary}</div>
-      </section>
+      <div>${summary}</div>
       <hr>`;
   }
 }

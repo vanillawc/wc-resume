@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCSkills extends HTMLElement {
   constructor () {
     super();
+    this.id = 'skills';
     this.__data = null;
     this.__template = null;
   }
@@ -28,15 +29,12 @@ export class WCSkills extends HTMLElement {
 
   static default ({ skills }) {
     return `
-      <section id="skills">
-        ${skills.map(skill => `
-          <div>
-            <span style="font-weight: bold">${skill.name} (${skill.level}): </span>
-            <span>${skill.keywords.join(', ')}</span>
-          </div>
-        `).join('\n')}
-
-      </section>
+      ${skills.map(skill => `
+        <div>
+          <span style="font-weight: bold">${skill.name} (${skill.level}): </span>
+          <span>${skill.keywords.join(', ')}</span>
+        </div>
+      `).join('\n')}
       <hr>`;
   }
 }

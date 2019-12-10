@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCContact extends HTMLElement {
   constructor () {
     super();
+    this.id = 'contact';
     this.__data = null;
     this.__template = null;
   }
@@ -35,13 +36,11 @@ export class WCContact extends HTMLElement {
 
   static default ({ name, label, email, phone, website, location }) {
     return `
-      <section id="contact">
-        <h1>${name}, ${label}</h1>
-        <div class="email"><a href="mailto:${email}">${email}</a></div>
-        <div class="phone">${phone}</div>
-        <div class="location">${location.city}, ${location.region}, ${location.countryCode}</div>
-        <div class="website"><a href="${website}">${website}</a></div>
-      </section>
+      <h1>${name}, ${label}</h1>
+      <div class="email"><a href="mailto:${email}">${email}</a></div>
+      <div class="phone">${phone}</div>
+      <div class="location">${location.city}, ${location.region}, ${location.countryCode}</div>
+      <div class="website"><a href="${website}">${website}</a></div>
       <hr>`;
   }
 }

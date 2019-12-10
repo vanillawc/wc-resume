@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCEducation extends HTMLElement {
   constructor () {
     super();
+    this.id = 'education';
     this.__data = null;
     this.__template = null;
   }
@@ -28,20 +29,18 @@ export class WCEducation extends HTMLElement {
 
   static default ({ schools }) {
     return `
-      <section id="education">
-        ${schools.map(school => `
-          <div>
-            <div style="float:left; font-weight: bold">${school.institution}</div>
-            <div style="float:right;">${school.startDate} - ${school.endDate}</div>
-            <div style="clear: both">${school.studyType} - ${school.area}, ${school.gpa}</div>
-            <ul>
-              ${school.courses.map(course => `
-                <li>${course}</li>
-              `).join('\n')}
-            </ul>
-          </div>
-        `).join('\n')}
-      </section>
+      ${schools.map(school => `
+        <div>
+          <div style="float:left; font-weight: bold">${school.institution}</div>
+          <div style="float:right;">${school.startDate} - ${school.endDate}</div>
+          <div style="clear: both">${school.studyType} - ${school.area}, ${school.gpa}</div>
+          <ul>
+            ${school.courses.map(course => `
+              <li>${course}</li>
+            `).join('\n')}
+          </ul>
+        </div>
+      `).join('\n')}
       <hr>`;
   }
 }

@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCPublications extends HTMLElement {
   constructor () {
     super();
+    this.id = 'publications';
     this.__data = null;
     this.__template = null;
   }
@@ -28,14 +29,14 @@ export class WCPublications extends HTMLElement {
 
   static default ({ publications }) {
     return `
-      <section id="publications">
-        ${publications.map(publication => `
+      ${publications.map(publication => `
+        <div>
           <div style="float:left; font-weight: bold">${publication.name}, ${publication.publisher}</div>
           <div style="float:right;">${publication.releaseDate}</div>
           <div style="clear:both"><a href="${publication.url}">${publication.url}</a></div>
           <div>${publication.summary}</div>
-        `)}
-      </section>
+        </div>
+      `)}
       <hr>`;
   }
 }

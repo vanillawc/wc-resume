@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCAwards extends HTMLElement {
   constructor () {
     super();
+    this.id = 'awards';
     this.__data = null;
     this.__template = null;
   }
@@ -28,13 +29,13 @@ export class WCAwards extends HTMLElement {
 
   static default ({ awards }) {
     return `
-      <section id="awards">
-        ${awards.map(award => `
+      ${awards.map(award => `
+        <div>
           <div style="float:left; font-weight: bold">${award.title}, ${award.awarder}</div>
           <div style="float:right;">${award.date}</div>
           <div style="clear:both">${award.summary}</div>
-        `)}
-      </section>
+        </div>
+      `)}
       <hr>`;
   }
 }

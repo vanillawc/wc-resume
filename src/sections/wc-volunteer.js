@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCVolunteer extends HTMLElement {
   constructor () {
     super();
+    this.id = 'volunteer';
     this.__data = null;
     this.__template = null;
   }
@@ -28,8 +29,8 @@ export class WCVolunteer extends HTMLElement {
 
   static default ({ roles }) {
     return `
-      <section id="volunteer">
-        ${roles.map(role => `
+      ${roles.map(role => `
+        <div>
           <div style="float:left; font-weight: bold">${role.organization}, ${role.position}</div>
           <div style="float:right;">${role.startDate} - ${role.endDate}</div>
           <div style="clear:both"><a href="${role.url}">${role.url}</a></div>
@@ -39,8 +40,8 @@ export class WCVolunteer extends HTMLElement {
               <li>${highlight}</li>
             `).join('\n')}
           </ul>
-        `)}
-      </section>
+        </div>
+      `)}
       <hr>`;
   }
 }

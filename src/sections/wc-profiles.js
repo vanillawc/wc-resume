@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCProfiles extends HTMLElement {
   constructor () {
     super();
+    this.id = 'profiles';
     this.__data = null;
     this.__template = null;
   }
@@ -28,11 +29,9 @@ export class WCProfiles extends HTMLElement {
 
   static default ({ profiles }) {
     return `
-      <section id="profiles">
-        ${profiles.map(profile => {
-          return `<div>${profile.network}: <a href="${profile.url}">${profile.username}</a></div>`;
-        }).join('\n')}
-      </section>
+      ${profiles.map(profile => `
+        <div>${profile.network}: <a href="${profile.url}">${profile.username}</a></div>
+      `).join('\n')}
       <hr>`;
   }
 }

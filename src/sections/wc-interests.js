@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCInterests extends HTMLElement {
   constructor () {
     super();
+    this.id = 'interests';
     this.__data = null;
     this.__template = null;
   }
@@ -28,15 +29,12 @@ export class WCInterests extends HTMLElement {
 
   static default ({ interests }) {
     return `
-      <section id="interests">
-        ${interests.map(interest => `
-          <div>
-            <span style="font-weight: bold">${interest.name}:</span>
-            <span>[ ${interest.keywords.join(', ')} ]</span>
-          </div>
-        `).join('\n')}
-
-      </section>
+      ${interests.map(interest => `
+        <div>
+          <span style="font-weight: bold">${interest.name}:</span>
+          <span>[ ${interest.keywords.join(', ')} ]</span>
+        </div>
+      `).join('\n')}
       <hr>`;
   }
 }

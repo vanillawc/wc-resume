@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCReferences extends HTMLElement {
   constructor () {
     super();
+    this.id = 'references';
     this.__data = null;
     this.__template = null;
   }
@@ -28,14 +29,12 @@ export class WCReferences extends HTMLElement {
 
   static default ({ references }) {
     return `
-      <section id="references">
-        ${references.map(reference => `
-          <blockquote>
-            <p>${reference.reference}</p>
-            <footer>— <cite>${reference.name}</cite></footer>
-          </blockquote>
-        `).join('\n')}
-      </section>
+      ${references.map(reference => `
+        <blockquote>
+          <p>${reference.reference}</p>
+          <footer>— <cite>${reference.name}</cite></footer>
+        </blockquote>
+      `).join('\n')}
       <hr>`;
   }
 }

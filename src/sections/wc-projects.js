@@ -3,6 +3,7 @@ import Interpolate from '../../node_modules/interpolate-es/index.js';
 export class WCProjects extends HTMLElement {
   constructor () {
     super();
+    this.id = 'projects';
     this.__data = null;
     this.__template = null;
   }
@@ -28,25 +29,23 @@ export class WCProjects extends HTMLElement {
 
   static default ({ projects }) {
     return `
-      <section id="projects">
-        ${projects.map(project => `
-          <div>
-            <div style="float:left; font-weight: bold">${project.name} (${project.type})</div>
-            <div style="float:right;">${project.startDate} - ${project.endDate}</div>
-            <div style="clear:both"><a href="${project.url}">${project.url}</a></div>
-            <div>${project.description}</div>
-            <div>${project.entity}</div>
-            <div>${project.roles.join(', ')}</div>
-            <ul>
-              ${project.highlights.map(highlight => `
-                <li>${highlight}</li>
-              `).join('\n')}
-            </ul>
-          </div>
+      ${projects.map(project => `
+        <div>
+          <div style="float:left; font-weight: bold">${project.name} (${project.type})</div>
+          <div style="float:right;">${project.startDate} - ${project.endDate}</div>
+          <div style="clear:both"><a href="${project.url}">${project.url}</a></div>
+          <div>${project.description}</div>
+          <div>${project.entity}</div>
+          <div>${project.roles.join(', ')}</div>
+          <ul>
+            ${project.highlights.map(highlight => `
+              <li>${highlight}</li>
+            `).join('\n')}
+          </ul>
           <div>${project.keywords.join(', ')}</div>
-        `).join('\n')}
-    </section>
-    <hr>`;
+        </div>
+      `).join('\n')}
+      <hr>`;
   }
 }
 
