@@ -1,20 +1,20 @@
 /* eslint no-undef: 0 */
 const defaultTemplate = document.createElement('template');
 defaultTemplate.innerHTML = `
-<contact></contact>
-<about></about>
-<profiles></profiles>
-<skills></skills>
-<work></work>
-<projects></projects>
-<education></education>
-<publications></publications>
-<awards></awards>
-<volunteer></volunteer>
-<languages></languages>
-<interests></interests>
-<references></references>
-<meta></meta>
+<wc-contact></wc-contact>
+<wc-about></wc-about>
+<wc-profiles></wc-profiles>
+<wc-skills></wc-skills>
+<wc-work></wc-work>
+<wc-projects></wc-projects>
+<wc-education></wc-education>
+<wc-publications></wc-publications>
+<wc-awards></wc-awards>
+<wc-volunteer></wc-volunteer>
+<wc-languages></wc-languages>
+<wc-interests></wc-interests>
+<wc-references></wc-references>
+<wc-meta></wc-meta>
 `;
 
 export class WCResume extends HTMLElement {
@@ -26,11 +26,11 @@ export class WCResume extends HTMLElement {
   connectedCallback () {
     if (this.innerHTML === '') {
       this.appendChild(defaultTemplate.content.cloneNode(true));
-    };
+    }
   }
 
   static get observedAttributes () {
-    return ['src', 'value'];
+    return ['src', 'data'];
   }
 
   attributeChangedCallback (name, oldValue, newValue) {
@@ -45,21 +45,21 @@ export class WCResume extends HTMLElement {
     this.setSrc();
   }
 
-  get value () { return this.__value; }
-  set value (value) {
-    this.__value = value;
+  get data () { return this.__data; }
+  set data (value) {
+    this.__data = value;
     this.render();
   }
 
   async setSrc () {
     const response = await fetch(this.src);
     const contents = await response.json();
-    this.__value = contents;
+    this.__data = contents;
     this.render();
   }
 
   render () {
-    console.log(this.__value);
+    const data = this.__data;
   }
 }
 
