@@ -29,25 +29,13 @@ export class WCSkills extends HTMLElement {
   static default ({ skills }) {
     return `
       <section id="skills">
-        <table>
-          <thead>
-            <tr>
-              <th>Skill</th>
-              <th>Level</th>
-              <th>Keywords</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${skills.map(skill => {
-              return `
-              <tr>
-                <td>${skill.name}</td>
-                <td>${skill.level}</td>
-                <td>${skill.keywords.join(', ')}</td>
-              </tr>`;
-            }).join('\n')}
-          </tbody>
-        </table>
+        ${skills.map(skill => `
+          <div>
+            <span style="font-weight: bold">${skill.name} (${skill.level}): </span>
+            <span>${skill.keywords.join(', ')}</span>
+          </div>
+        `).join('\n')}
+
       </section>
       <hr>`;
   }
