@@ -5,6 +5,7 @@ import './sections/wc-profiles.js';
 import './sections/wc-skills.js';
 import './sections/wc-work.js';
 import './sections/wc-projects.js';
+import './sections/wc-education.js';
 const defaultTemplate = document.createElement('template');
 defaultTemplate.innerHTML = `
 <wc-contact></wc-contact>
@@ -72,6 +73,7 @@ export class WCResume extends HTMLElement {
     this.querySelector('wc-skills').data = data.skills;
     this.querySelector('wc-work').data = data.work;
     this.querySelector('wc-projects').data = data.projects;
+    this.querySelector('wc-education').data = data.education;
   }
 }
 
