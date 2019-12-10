@@ -10,6 +10,7 @@ import './sections/wc-publications.js';
 import './sections/wc-awards.js';
 import './sections/wc-volunteer.js';
 import './sections/wc-languages.js';
+import './sections/wc-interests.js';
 const defaultTemplate = document.createElement('template');
 defaultTemplate.innerHTML = `
 <wc-contact></wc-contact>
@@ -82,6 +83,7 @@ export class WCResume extends HTMLElement {
     this.querySelector('wc-awards').data = data.awards;
     this.querySelector('wc-volunteer').data = data.volunteer;
     this.querySelector('wc-languages').data = data.languages;
+    this.querySelector('wc-interests').data = data.interests;
   }
 }
 
