@@ -20,6 +20,7 @@
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
+    "interpolate-es": "^1.0.2",
     "semistandard": "^14.2.0"
   }
 }
