@@ -28,7 +28,7 @@ export class WCProfiles extends HTMLElement {
 
   static default ({ profiles }) {
     return `
-      <section id="social">
+      <section id="profiles">
         ${profiles.map(profile => {
           return `<div>${profile.network}: <a href="${profile.url}">${profile.username}</a></div>`;
         }).join('\n')}

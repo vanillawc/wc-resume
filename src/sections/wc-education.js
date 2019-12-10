@@ -28,7 +28,7 @@ export class WCEducation extends HTMLElement {
 
   static default ({ schools }) {
     return `
-      <section id="projects">
+      <section id="education">
         ${schools.map(school => `
           <div>
             <div style="float:left; font-weight: bold">${school.institution}</div>

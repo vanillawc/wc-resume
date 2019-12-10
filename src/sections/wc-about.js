@@ -28,7 +28,7 @@ export class WCAbout extends HTMLElement {
 
   static default ({ summary }) {
     return `
-      <section id="info">
+      <section id="about">
         <div>${summary}</div>
       </section>
       <hr>`;
