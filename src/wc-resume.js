@@ -1,4 +1,5 @@
 /* eslint no-undef: 0 */
+import './sections/wc-contact.js';
 const defaultTemplate = document.createElement('template');
 defaultTemplate.innerHTML = `
 <wc-contact></wc-contact>
@@ -60,6 +61,7 @@ export class WCResume extends HTMLElement {
 
   render () {
     const data = this.__data;
+    this.querySelector('wc-contact').data = data.basics;
   }
 }
 
