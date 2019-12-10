@@ -12,6 +12,7 @@ import './sections/wc-volunteer.js';
 import './sections/wc-languages.js';
 import './sections/wc-interests.js';
 import './sections/wc-references.js';
+
 const defaultTemplate = document.createElement('template');
 defaultTemplate.innerHTML = `
 <wc-contact></wc-contact>
@@ -27,7 +28,6 @@ defaultTemplate.innerHTML = `
 <wc-languages></wc-languages>
 <wc-interests></wc-interests>
 <wc-references></wc-references>
-<wc-meta></wc-meta>
 `;
 
 export class WCResume extends HTMLElement {
