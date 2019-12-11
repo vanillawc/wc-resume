@@ -17,6 +17,19 @@ export default class WCResume extends HTMLElement {
   constructor () {
     super();
     this.__data = null;
+    this.__contact = null;
+    this.__about = null;
+    this.__profiles = null;
+    this.__skills = null;
+    this.__work = null;
+    this.__projects = null;
+    this.__education = null;
+    this.__publications = null;
+    this.__awards = null;
+    this.__volunteer = null;
+    this.__languages = null;
+    this.__interests = null;
+    this.__references = null;
   }
 
   connectedCallback () {
@@ -25,6 +38,8 @@ export default class WCResume extends HTMLElement {
       template.innerHTML = WCResume.default();
       this.appendChild(template.content.cloneNode(true));
     }
+
+    this.init();
   }
 
   static get observedAttributes () {
@@ -56,21 +71,37 @@ export default class WCResume extends HTMLElement {
     this.render();
   }
 
+  init () {
+    this.__contact = this.querySelector('wc-contact');
+    this.__about = this.querySelector('wc-about');
+    this.__profiles = this.querySelector('wc-profiles');
+    this.__skills = this.querySelector('wc-skills');
+    this.__work = this.querySelector('wc-work');
+    this.__projects = this.querySelector('wc-projects');
+    this.__education = this.querySelector('wc-education');
+    this.__publications = this.querySelector('wc-publications');
+    this.__awards = this.querySelector('wc-awards');
+    this.__volunteer = this.querySelector('wc-volunteer');
+    this.__languages = this.querySelector('wc-languages');
+    this.__interests = this.querySelector('wc-interests');
+    this.__references = this.querySelector('wc-references');
+    console.dir(this);
+  }
+
   render () {
-    const data = this.__data;
-    this.querySelector('wc-contact').data = data.basics;
-    this.querySelector('wc-about').data = data.basics;
-    this.querySelector('wc-profiles').data = data.basics;
-    this.querySelector('wc-skills').data = data.skills;
-    this.querySelector('wc-work').data = data.work;
-    this.querySelector('wc-projects').data = data.projects;
-    this.querySelector('wc-education').data = data.education;
-    this.querySelector('wc-publications').data = data.publications;
-    this.querySelector('wc-awards').data = data.awards;
-    this.querySelector('wc-volunteer').data = data.volunteer;
-    this.querySelector('wc-languages').data = data.languages;
-    this.querySelector('wc-interests').data = data.interests;
-    this.querySelector('wc-references').data = data.references;
+    if (this.__contact) { this.__contact.data = this.__data.basics; }
+    if (this.__about) { this.__about.data = this.__data.basics; }
+    if (this.__profiles) { this.__profiles.data = this.__data.basics; }
+    if (this.__skills) { this.__skills.data = this.__data.skills; }
+    if (this.__work) { this.__work.data = this.__data.work; }
+    if (this.__projects) { this.__projects.data = this.__data.projects; }
+    if (this.__education) { this.__education.data = this.__data.education; }
+    if (this.__publications) { this.__publications.data = this.__data.publications; }
+    if (this.__awards) { this.__awards.data = this.__data.awards; }
+    if (this.__volunteer) { this.__volunteer.data = this.__data.volunteer; }
+    if (this.__languages) { this.__languages.data = this.__data.languages; }
+    if (this.__interests) { this.__interests.data = this.__data.interests; }
+    if (this.__references) { this.__references.data = this.__data.references; }
   }
 
   static default () {
