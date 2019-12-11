@@ -1,5 +1,5 @@
 /* eslint no-undef: 0 */
-import Interpolate from '../util/interpolate';
+import Interpolate from '../util/interpolate.js';
 
 export class WCAwards extends HTMLElement {
   constructor () {
