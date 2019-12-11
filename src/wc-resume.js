@@ -13,7 +13,7 @@ import './sections/wc-languages.js';
 import './sections/wc-interests.js';
 import './sections/wc-references.js';
 
-export class WCResume extends HTMLElement {
+export default class WCResume extends HTMLElement {
   constructor () {
     super();
     this.__data = null;
