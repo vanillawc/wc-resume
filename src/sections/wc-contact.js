@@ -1,5 +1,6 @@
 /* eslint no-undef: 0 */
-import Interpolate from '../../node_modules/interpolate-es/index.js';
+import Interpolate from '../util/interpolate';
+
 export class WCContact extends HTMLElement {
   constructor () {
     super();

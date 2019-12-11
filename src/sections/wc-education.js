@@ -1,5 +1,6 @@
 /* eslint no-undef: 0 */
-import Interpolate from '../../node_modules/interpolate-es/index.js';
+import Interpolate from '../util/interpolate';
+
 export class WCEducation extends HTMLElement {
   constructor () {
     super();
