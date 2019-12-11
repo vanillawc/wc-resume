@@ -24,9 +24,10 @@ export class WCContact extends HTMLElement {
     const tags = {
       name: this.__data.name,
       label: this.__data.label,
+      image: this.__data.image,
       email: this.__data.email,
       phone: this.__data.phone,
-      website: this.__data.url,
+      url: this.__data.url,
       location: this.__data.location
     };
     if (!this.__template) {
@@ -35,13 +36,13 @@ export class WCContact extends HTMLElement {
     this.innerHTML = Interpolate(this.__template, tags);
   }
 
-  static default ({ name, label, email, phone, website, location }) {
+  static default ({ name, label, image, email, phone, url, location }) {
     return `
       <h1>${name}, ${label}</h1>
-      <div class="email"><a href="mailto:${email}">${email}</a></div>
-      <div class="phone">${phone}</div>
-      <div class="location">${location.city}, ${location.region}, ${location.countryCode}</div>
-      <div class="website"><a href="${website}">${website}</a></div>
+      <div><a href="mailto:${email}">${email}</a></div>
+      <div>${phone}</div>
+      <div>${location.city}, ${location.region}, ${location.countryCode}</div>
+      <div><a href="${url}">${url}</a></div>
       <hr>`;
   }
 }
