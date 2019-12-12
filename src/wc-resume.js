@@ -33,7 +33,7 @@ export default class WCResume extends HTMLElement {
     this.__references = null;
   }
 
-  connectedCallback () {
+  async connectedCallback () {
     if (this.innerHTML === '') {
       const template = document.createElement('template');
       template.innerHTML = WCResume.default();
@@ -46,6 +46,12 @@ export default class WCResume extends HTMLElement {
     }
 
     this.init();
+
+    if (this.hasAttribute('template')) {
+      await this.setTemplate();
+    }
+
+    this.render();
   }
 
   static get observedAttributes () {
@@ -92,7 +98,16 @@ export default class WCResume extends HTMLElement {
     this.__languages = this.querySelector('wc-languages');
     this.__interests = this.querySelector('wc-interests');
     this.__references = this.querySelector('wc-references');
-    console.dir(this);
+  }
+
+  async setTemplate () {
+    const path = this.getAttribute('template');
+    this.__style.innerHTML = await this.getTemplate(path, 'style.css');
+  }
+
+  async getTemplate (path, partial) {
+    const response = await fetch(`${path}/${partial}`);
+    return await response.text();
   }
 
   render () {
