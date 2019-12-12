@@ -1,0 +1,20 @@
+${awards.map(award => `
+  <table>
+    <tr>
+      <td>Title</td>
+      <td>${award.title}</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>${award.date}</td>
+    </tr>
+    <tr>
+      <td>Awarder</td>
+      <td>${award.awarder}</td>
+    </tr>
+    <tr>
+      <td>Summary</td>
+      <td>${award.summary}</td>
+    </tr>
+  </table>
+`).join('\n\n')}
