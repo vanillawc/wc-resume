@@ -1,0 +1,44 @@
+${jobs.map(job => `
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>${job.name}</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>${job.location}</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>${job.description}</td>
+    </tr>
+    <tr>
+      <td>Position</td>
+      <td>${job.position}</td>
+    </tr>
+    <tr>
+      <td>URL</td>
+      <td>${job.url}</td>
+    </tr>
+    <tr>
+      <td>Start</td>
+      <td>${job.startDate}</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>${job.endDate}</td>
+    </tr>
+    <tr>
+      <td>Summary</td>
+      <td>${job.summary}</td>
+    </tr>
+    <tr>
+      <td>Highlights</td>
+      <td>
+        <ul>
+          ${job.highlights.map(highlight => `<li>${highlight}</li>`).join('\n')}
+        </ul>
+      </td>
+    </tr>
+  </table>
+`).join('\n\n')}
