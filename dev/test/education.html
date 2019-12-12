@@ -1,0 +1,36 @@
+${schools.map(school => `
+  <table>
+    <tr>
+      <td>Institution</td>
+      <td>${school.institution}</td>
+    </tr>
+    <tr>
+      <td>Area</td>
+      <td>${school.area}</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>${school.studyType}</td>
+    </tr>
+    <tr>
+      <td>Start</td>
+      <td>${school.startDate}</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>${school.endDate}</td>
+    </tr>
+    <tr>
+      <td>GPA</td>
+      <td>${school.gpa}</td>
+    </tr>
+    <tr>
+      <td>Courses</td>
+      <td>
+        <ul>
+          ${school.courses.map(course => `<li>${course}</li>`).join('\n')}
+        </ul>
+      </td>
+    </tr>
+  </table>
+`).join('\n\n')}
