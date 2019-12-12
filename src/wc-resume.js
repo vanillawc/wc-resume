@@ -106,6 +106,7 @@ export default class WCResume extends HTMLElement {
     if (this.__contact) { this.__contact.template = await this.getTemplate(path, 'contact.html'); }
     if (this.__about) { this.__about.template = await this.getTemplate(path, 'about.html'); }
     if (this.__profiles) { this.__profiles.template = await this.getTemplate(path, 'profiles.html'); }
+    if (this.__skills) { this.__skills.template = await this.getTemplate(path, 'skills.html'); }
   }
 
   async getTemplate (path, partial) {
