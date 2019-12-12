@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Network</th>
+    <th>Username</th>
+    <th>URL</th>
+  </tr>
+  ${profiles.map(profile => `
+    <tr>
+      <td>${profile.network}</td>
+      <td>${profile.username}</td>    
+      <td>${profile.url}</td>
+    </tr>
+  `).join('\n')}
+</table>
