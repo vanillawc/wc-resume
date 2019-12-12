@@ -17,6 +17,7 @@ export default class WCResume extends HTMLElement {
   constructor () {
     super();
     this.__data = null;
+    this.__style = null;
     this.__contact = null;
     this.__about = null;
     this.__profiles = null;
@@ -37,6 +38,11 @@ export default class WCResume extends HTMLElement {
       const template = document.createElement('template');
       template.innerHTML = WCResume.default();
       this.appendChild(template.content.cloneNode(true));
+    }
+
+    if (this.querySelector('style') === null) {
+      const styleElement = document.createElement('style');
+      this.insertBefore(styleElement, this.firstChild);
     }
 
     this.init();
@@ -72,6 +78,7 @@ export default class WCResume extends HTMLElement {
   }
 
   init () {
+    this.__style = this.querySelector('style');
     this.__contact = this.querySelector('wc-contact');
     this.__about = this.querySelector('wc-about');
     this.__profiles = this.querySelector('wc-profiles');
@@ -106,6 +113,7 @@ export default class WCResume extends HTMLElement {
 
   static default () {
     return `
+      <style></style>
       <wc-contact></wc-contact>
       <wc-about></wc-about>
       <wc-profiles></wc-profiles>
