@@ -101,7 +101,9 @@ export default class WCResume extends HTMLElement {
   }
 
   async setTemplate () {
-    const path = this.getAttribute('template');
+    let path = this.getAttribute('template');
+    if (!(/\/$/.test(path))) ( path = path + '/');
+
     this.__style.innerHTML = await this.getTemplate(path, 'style.css');
     if (this.__contact) { this.__contact.template = await this.getTemplate(path, 'contact.html'); }
     if (this.__about) { this.__about.template = await this.getTemplate(path, 'about.html'); }
@@ -119,7 +121,7 @@ export default class WCResume extends HTMLElement {
   }
 
   async getTemplate (path, partial) {
-    const response = await fetch(`${path}/${partial}`);
+    const response = await fetch(path + partial);
     return response.text();
   }
 
