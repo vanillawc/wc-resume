@@ -1,0 +1,36 @@
+${roles.map(role => `
+  <table>
+    <tr>
+      <td>Organization</td>
+      <td>${role.organization}</td>
+    </tr>
+    <tr>
+      <td>Position</td>
+      <td>${role.position}</td>
+    </tr>
+    <tr>
+      <td>URL</td>
+      <td>${role.url}</td>
+    </tr>
+    <tr>
+      <td>Start</td>
+      <td>${role.startDate}</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>${role.endDate}</td>
+    </tr>
+    <tr>
+      <td>Summary</td>
+      <td>${role.summary}</td>
+    </tr>
+    <tr>
+      <td>Highlights</td>
+      <td>
+        <ul>
+          ${role.highlights.map(highlight => `<li>${highlight}</li>`).join('\n')}
+        </ul>
+      </td>
+    </tr>
+  </table>
+`).join('\n\n')}
