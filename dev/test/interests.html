@@ -1,0 +1,12 @@
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Keywords</th>
+    </tr>
+    ${interests.map(interest => `
+      <tr>
+        <td>${interest.name}</td>
+        <td>${interest.keywords.join(', ')}</td>    
+      </tr>
+    `).join('\n')}
+  </table>
