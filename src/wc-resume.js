@@ -120,7 +120,7 @@ export default class WCResume extends HTMLElement {
 
   async getTemplate (path, partial) {
     const response = await fetch(`${path}/${partial}`);
-    return await response.text();
+    return response.text();
   }
 
   render () {

@@ -1,3 +1,4 @@
+<h2>Projects</h2>
 ${projects.map(project => `
   <table>
     <tr>
@@ -32,7 +33,9 @@ ${projects.map(project => `
       <td>Roles</td>
       <td>
         <ul>
-          ${project.roles.map(role => `<li>${role}</li>`).join('\n')}
+          ${project.roles.map(role => `
+            <li>${role}</li>
+          `).join('\n')}
         </ul>
       </td>
     </tr>
@@ -40,7 +43,9 @@ ${projects.map(project => `
       <td>Highlights</td>
       <td>
         <ul>
-          ${project.highlights.map(highlight => `<li>${highlight}</li>`).join('\n')}
+          ${project.highlights.map(highlight => `
+            <li>${highlight}</li>
+          `).join('\n')}
         </ul>
       </td>
     </tr>
@@ -48,9 +53,12 @@ ${projects.map(project => `
       <td>Keywords</td>
       <td>
         <ul>
-          ${project.keywords.map(keyword => `<li>${keyword}</li>`).join('\n')}
+          ${project.keywords.map(keyword => `
+            <li>${keyword}</li>
+          `).join('\n')}
         </ul>
       </td>
     </tr>
   </table>
 `).join('\n\n')}
+<hr>

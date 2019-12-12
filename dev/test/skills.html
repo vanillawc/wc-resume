@@ -1,3 +1,4 @@
+<h2>Skills</h2>
 <table>
   <tr>
     <th>Name</th>
@@ -7,8 +8,9 @@
   ${skills.map(skill => `
     <tr>
       <td>${skill.name}</td>
-      <td>${skill.level}</td>    
+      <td>${skill.level}</td>
       <td>${skill.keywords.join(', ')}</td>
     </tr>
   `).join('\n')}
 </table>
+<hr>

@@ -1,3 +1,4 @@
+<h2>Education</h2>
 ${schools.map(school => `
   <table>
     <tr>
@@ -28,9 +29,12 @@ ${schools.map(school => `
       <td>Courses</td>
       <td>
         <ul>
-          ${school.courses.map(course => `<li>${course}</li>`).join('\n')}
+          ${school.courses.map(course => `
+            <li>${course}</li>
+          `).join('\n')}
         </ul>
       </td>
     </tr>
   </table>
 `).join('\n\n')}
+<hr>

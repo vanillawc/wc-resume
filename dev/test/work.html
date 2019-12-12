@@ -1,3 +1,4 @@
+<h2>Work</h2>
 ${jobs.map(job => `
   <table>
     <tr>
@@ -36,9 +37,12 @@ ${jobs.map(job => `
       <td>Highlights</td>
       <td>
         <ul>
-          ${job.highlights.map(highlight => `<li>${highlight}</li>`).join('\n')}
+          ${job.highlights.map(highlight => `
+            <li>${highlight}</li>
+          `).join('\n')}
         </ul>
       </td>
     </tr>
   </table>
 `).join('\n\n')}
+<hr>

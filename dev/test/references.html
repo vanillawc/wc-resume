@@ -1,12 +1,14 @@
+<h2>References</h2>
 <table>
+  <tr>
+    <th>Name</th>
+    <th>Reference</th>
+  </tr>
+  ${references.map(reference => `
     <tr>
-      <th>Name</th>
-      <th>Reference</th>
+      <td>${reference.name}</td>
+      <td>${reference.reference}</td>
     </tr>
-    ${references.map(reference => `
-      <tr>
-        <td>${reference.name}</td>
-        <td>${reference.reference}</td>    
-      </tr>
-    `).join('\n')}
-  </table>
+  `).join('\n')}
+</table>
+<hr>

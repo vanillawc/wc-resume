@@ -1,3 +1,4 @@
+<h2>Volunteer</h2>
 ${roles.map(role => `
   <table>
     <tr>
@@ -28,9 +29,12 @@ ${roles.map(role => `
       <td>Highlights</td>
       <td>
         <ul>
-          ${role.highlights.map(highlight => `<li>${highlight}</li>`).join('\n')}
+          ${role.highlights.map(highlight => `
+            <li>${highlight}</li>
+          `).join('\n')}
         </ul>
       </td>
     </tr>
   </table>
 `).join('\n\n')}
+<hr>
