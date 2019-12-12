@@ -1,0 +1,56 @@
+${projects.map(project => `
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>${project.name}</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>${project.type}</td>
+    </tr>
+    <tr>
+      <td>Entity</td>
+      <td>${project.entity}</td>
+    </tr>
+    <tr>
+      <td>Start</td>
+      <td>${project.startDate}</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>${project.endDate}</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>${project.description}</td>
+    </tr>
+    <tr>
+      <td>URL</td>
+      <td>${project.url}</td>
+    </tr>
+    <tr>
+      <td>Roles</td>
+      <td>
+        <ul>
+          ${project.roles.map(role => `<li>${role}</li>`).join('\n')}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Highlights</td>
+      <td>
+        <ul>
+          ${project.highlights.map(highlight => `<li>${highlight}</li>`).join('\n')}
+        </ul>
+      </td>
+    </tr>
+      <tr>
+      <td>Keywords</td>
+      <td>
+        <ul>
+          ${project.keywords.map(keyword => `<li>${keyword}</li>`).join('\n')}
+        </ul>
+      </td>
+    </tr>
+  </table>
+`).join('\n\n')}
