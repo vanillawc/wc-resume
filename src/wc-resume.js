@@ -69,11 +69,10 @@ export default class WCResume extends HTMLElement {
 
   get src () { return this.getAttribute('src'); }
   set src (value) {
+    if (!this.__initialized) { return; }
     this.setAttribute('src', value);
     this.setSrc();
-    if (this.__initialized) {
-      this.render();
-    }
+    this.render();
   }
 
   get data () { return this.__data; }
@@ -84,6 +83,9 @@ export default class WCResume extends HTMLElement {
 
   async setSrc () {
     const response = await fetch(this.src);
+    if (response.status !== 200) {
+      throw Error(`ERR ${response.status}: ${response.statusText}`);
+    }
     const contents = await response.json();
     this.__data = contents;
   }
