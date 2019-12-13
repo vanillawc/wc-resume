@@ -1,0 +1,18 @@
+${profiles.map(profile => {
+  if (profile.network.toLowerCase() === 'twitter') {
+    return `
+      <div>
+        <i class="fa fa-lg fa-twitter"></i>
+        ${profile.username}
+      </div>
+    `;
+  }
+  if (profile.network.toLowerCase() === 'soundcloud') {
+    return `
+      <div>
+        <span class="fa fa-lg fa-soundcloud"></span>
+        ${profile.username}
+      </div>
+    `;
+  }
+}).join('\n')}
