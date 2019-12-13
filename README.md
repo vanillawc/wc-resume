@@ -1,17 +1,17 @@
-[![GitHub Releases](https://img.shields.io/github/release/vanillawc/wc-readme.svg)](https://github.com/vanillawc/wc-readme/releases)
-[![NPM Release](https://badgen.net/npm/v/@vanillawc/wc-readme)](https://www.npmjs.com/package/@vanillawc/wc-readme)
-[![Downloads](https://badgen.net/npm/dt/@vanillawc/wc-readme)](https://www.npmjs.com/package/@vanillawc/wc-readme)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vanillawc/wc-readme/master/LICENSE)
-[![Published on WebComponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@vanillawc/wc-readme)
-[![Latest Status](https://github.com/vanillawc/wc-readme/workflows/Latest/badge.svg)](https://github.com/vanillawc/wc-readme/actions)
-[![Release Status](https://github.com/vanillawc/wc-readme/workflows/Release/badge.svg)](https://github.com/vanillawc/wc-readme/actions)
+[![GitHub Releases](https://img.shields.io/github/release/vanillawc/wc-resume.svg)](https://github.com/vanillawc/wc-resume/releases)
+[![NPM Release](https://badgen.net/npm/v/@vanillawc/wc-resume)](https://www.npmjs.com/package/@vanillawc/wc-resume)
+[![Downloads](https://badgen.net/npm/dt/@vanillawc/wc-resume)](https://www.npmjs.com/package/@vanillawc/wc-resume)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vanillawc/wc-resume/master/LICENSE)
+[![Published on WebComponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@vanillawc/wc-resume)
+[![Latest Status](https://github.com/vanillawc/wc-resume/workflows/Latest/badge.svg)](https://github.com/vanillawc/wc-resume/actions)
+[![Release Status](https://github.com/vanillawc/wc-resume/workflows/Release/badge.svg)](https://github.com/vanillawc/wc-resume/actions)
 
 A Vanilla Web Component to Resume.json content in a styled template
 
 ## Installation
 
 ```sh
-npm i @vanillawc/wc-readme
+npm i @vanillawc/wc-resume
 ```
 
 Then import the `index.js` file at the root of the package.
@@ -23,22 +23,22 @@ Then import the `index.js` file at the root of the package.
 ### Load the `resume.json` file from an external source
 
 ```html
-<wc-readme src="assets/sample.md"></wc-readme>
+<wc-resume src="assets/sample.md"></wc-resume>
 ```
 
-***Demo: [WC-Readme - Demo][]***
+***Demo: [wc-resume - Demo][]***
 
 ### Customizing the Content Order
 
 Customize the sections and their order by adding them inline.
 
 ```html
-<wc-readme src="assets/sample.md">
+<wc-resume src="assets/sample.md">
   <wc-contact>
   <wc-summary>
   <wc-work>
   <wc-skills>
-</wc-readme>
+</wc-resume>
 ```
 
 ### Style the Resume with an External Template
@@ -84,4 +84,4 @@ wc-work .content {
 ```
 
 [tagged template literal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-[WC-Readme - Demo]: https://vanillawc.github.io/wc-readme/demos/index.html
+[wc-resume - Demo]: https://vanillawc.github.io/wc-resume/demos/index.html
