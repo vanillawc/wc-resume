@@ -1,6 +1,6 @@
 {
   "name": "@vanillawc/wc-resume",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "author": "Evan Plaice <evanplaice@gmail.com> (http://evanplaice.com/)",
   "description": "A resume.json vanilla web component",
