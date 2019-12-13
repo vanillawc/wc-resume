@@ -57,6 +57,7 @@ Templates are defined as a collection of partials written in [tagged template li
 
 A complete template is defined as a directory of the following files
 
+```sh
 template
 ├── about.html
 ├── awards.html
@@ -72,6 +73,7 @@ template
 ├── style.css
 ├── volunteer.html
 └── work.html
+```
 
 `styles.css` is where global CSS styling for the template is defined
 
