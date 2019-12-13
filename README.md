@@ -20,15 +20,15 @@ Then import the `index.js` file at the root of the package.
 
 ## Usage
 
-### Load the `resume.json` file from an external source
+### Load `resume.json`
 
 ```html
 <wc-resume src="assets/sample.md"></wc-resume>
 ```
 
-***Demo: [wc-resume - Demo][]***
+***Demo: [WC-Resume - Demo][]***
 
-### Customizing the Content Order
+### Customizing Content
 
 Customize the sections and their order by adding them inline.
 
@@ -41,7 +41,7 @@ Customize the sections and their order by adding them inline.
 </wc-resume>
 ```
 
-### Style the Resume with an External Template
+### Use a Template
 
 A template is defined as a collection of partials. To include a template, define a link to the template's directory.
 
@@ -86,4 +86,4 @@ wc-work .content {
 ```
 
 [tagged template literal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-[wc-resume - Demo]: https://vanillawc.github.io/wc-resume/demos/index.html
+[WC-Resume - Demo]: https://vanillawc.github.io/wc-resume/demo/index.html
