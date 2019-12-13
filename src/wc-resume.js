@@ -31,6 +31,7 @@ export default class WCResume extends HTMLElement {
     this.__languages = null;
     this.__interests = null;
     this.__references = null;
+    this.__initialized = false;
   }
 
   async connectedCallback () {
@@ -68,6 +69,9 @@ export default class WCResume extends HTMLElement {
   set src (value) {
     this.setAttribute('src', value);
     this.setSrc();
+    if (this.__initialized) {
+      this.render();
+    }
   }
 
   get data () { return this.__data; }
@@ -80,7 +84,6 @@ export default class WCResume extends HTMLElement {
     const response = await fetch(this.src);
     const contents = await response.json();
     this.__data = contents;
-    this.render();
   }
 
   init () {
@@ -98,11 +101,12 @@ export default class WCResume extends HTMLElement {
     this.__languages = this.querySelector('wc-languages');
     this.__interests = this.querySelector('wc-interests');
     this.__references = this.querySelector('wc-references');
+    this.__initialized = true;
   }
 
   async setTemplate () {
     let path = this.getAttribute('template');
-    if (!(/\/$/.test(path))) ( path = path + '/');
+    if (!(/\/$/.test(path))) { path = path + '/'; }
 
     this.__style.innerHTML = await this.getTemplate(path, 'style.css');
     if (this.__contact) { this.__contact.template = await this.getTemplate(path, 'contact.html'); }
