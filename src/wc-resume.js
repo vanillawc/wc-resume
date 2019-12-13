@@ -46,6 +46,8 @@ export default class WCResume extends HTMLElement {
       this.insertBefore(styleElement, this.firstChild);
     }
 
+    await this.setSrc();
+
     this.init();
 
     if (this.hasAttribute('template')) {
