@@ -2,7 +2,7 @@
 [![NPM Release](https://badgen.net/npm/v/@vanillawc/wc-resume)](https://www.npmjs.com/package/@vanillawc/wc-resume)
 [![Downloads](https://badgen.net/npm/dt/@vanillawc/wc-resume)](https://www.npmjs.com/package/@vanillawc/wc-resume)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vanillawc/wc-resume/master/LICENSE)
-[![Published on WebComponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@vanillawc/wc-resume)
+[![Published on WebComponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/vanillawc/wc-resume)
 [![Latest Status](https://github.com/vanillawc/wc-resume/workflows/Latest/badge.svg)](https://github.com/vanillawc/wc-resume/actions)
 [![Release Status](https://github.com/vanillawc/wc-resume/workflows/Release/badge.svg)](https://github.com/vanillawc/wc-resume/actions)
 
