@@ -62,6 +62,7 @@ export default class WCResume extends HTMLElement {
   }
 
   attributeChangedCallback (name, oldValue, newValue) {
+    if (!this.__initialized) { return; }
     if (oldValue !== newValue) {
       this[name] = newValue;
     }
@@ -69,7 +70,6 @@ export default class WCResume extends HTMLElement {
 
   get src () { return this.getAttribute('src'); }
   set src (value) {
-    if (!this.__initialized) { return; }
     this.setAttribute('src', value);
     this.setSrc();
     this.render();
