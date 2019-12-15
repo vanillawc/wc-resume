@@ -26,7 +26,7 @@ Then import the `index.js` file at the root of the package.
 <wc-resume src="assets/sample.md"></wc-resume>
 ```
 
-***Demo: [WC-Resume - Demo][]***
+***Demo: [WC-Resume - 'src' Attribute][]**
 
 ### Customizing Content
 
@@ -50,6 +50,8 @@ Resume themes are made up of a collection of partials and a `styles.css` file. T
 ```
 
 Themes can be found in the `themes/` directory.
+
+***Demo: [WC-Resume - 'theme' Attribute][]**
 
 ## Building Custom Theme
 
@@ -78,4 +80,6 @@ theme
 `styles.css` is where the theme's CSS styling is defined
 
 [tagged template literal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-[WC-Resume - Demo]: https://vanillawc.github.io/wc-resume/demo/index.html
+[WC-Resume - 'src' Attribute]: https://vanillawc.github.io/wc-resume/demo/src-attribute.html
+[WC-Resume - 'theme' Attribute]: https://vanillawc.github.io/wc-resume/demo/theme-attribute.html
+
