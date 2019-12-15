@@ -14,49 +14,6 @@ import './sections/wc-interests.js';
 import './sections/wc-references.js';
 
 export default class WCResume extends HTMLElement {
-  constructor () {
-    super();
-    this.__data = null;
-    this.__style = null;
-    this.__contact = null;
-    this.__about = null;
-    this.__profiles = null;
-    this.__skills = null;
-    this.__work = null;
-    this.__projects = null;
-    this.__education = null;
-    this.__publications = null;
-    this.__awards = null;
-    this.__volunteer = null;
-    this.__languages = null;
-    this.__interests = null;
-    this.__references = null;
-    this.__initialized = false;
-  }
-
-  async connectedCallback () {
-    if (this.innerHTML === '') {
-      const template = document.createElement('template');
-      template.innerHTML = WCResume.default();
-      this.appendChild(template.content.cloneNode(true));
-    }
-
-    if (this.querySelector('style') === null) {
-      const styleElement = document.createElement('style');
-      this.insertBefore(styleElement, this.firstChild);
-    }
-
-    await this.setSrc();
-
-    this.init();
-
-    if (this.hasAttribute('template')) {
-      await this.setTemplate();
-    }
-
-    this.render();
-  }
-
   static get observedAttributes () {
     return ['src', 'data'];
   }
@@ -81,56 +38,103 @@ export default class WCResume extends HTMLElement {
     this.render();
   }
 
-  async setSrc () {
-    const response = await fetch(this.src);
-    if (response.status !== 200) {
-      throw Error(`ERR ${response.status}: ${response.statusText}`);
+  constructor () {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.__data = null;
+    this.__style = null;
+    this.__contact = null;
+    this.__about = null;
+    this.__profiles = null;
+    this.__skills = null;
+    this.__work = null;
+    this.__projects = null;
+    this.__education = null;
+    this.__publications = null;
+    this.__awards = null;
+    this.__volunteer = null;
+    this.__languages = null;
+    this.__interests = null;
+    this.__references = null;
+    this.__initialized = false;
+  }
+
+  async connectedCallback () {
+    const template = document.createElement('template');
+    template.innerHTML = (this.innerHTML === '')
+      ? WCResume.default()
+      : this.innerHTML;
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+    if (this.querySelector('style') === null) {
+      const styleElement = document.createElement('style');
+      this.shadowRoot.insertBefore(styleElement, this.firstChild);
     }
-    const contents = await response.json();
-    this.__data = contents;
+
+    await this.setSrc();
+
+    this.init();
+
+    if (this.hasAttribute('theme')) {
+      await this.setTheme();
+    }
+
+    this.render();
   }
 
   init () {
-    this.__style = this.querySelector('style');
-    this.__contact = this.querySelector('wc-contact');
-    this.__about = this.querySelector('wc-about');
-    this.__profiles = this.querySelector('wc-profiles');
-    this.__skills = this.querySelector('wc-skills');
-    this.__work = this.querySelector('wc-work');
-    this.__projects = this.querySelector('wc-projects');
-    this.__education = this.querySelector('wc-education');
-    this.__publications = this.querySelector('wc-publications');
-    this.__awards = this.querySelector('wc-awards');
-    this.__volunteer = this.querySelector('wc-volunteer');
-    this.__languages = this.querySelector('wc-languages');
-    this.__interests = this.querySelector('wc-interests');
-    this.__references = this.querySelector('wc-references');
+    this.__style = this.shadowRoot.querySelector('style');
+    this.__contact = this.shadowRoot.querySelector('wc-contact');
+    this.__about = this.shadowRoot.querySelector('wc-about');
+    this.__profiles = this.shadowRoot.querySelector('wc-profiles');
+    this.__skills = this.shadowRoot.querySelector('wc-skills');
+    this.__work = this.shadowRoot.querySelector('wc-work');
+    this.__projects = this.shadowRoot.querySelector('wc-projects');
+    this.__education = this.shadowRoot.querySelector('wc-education');
+    this.__publications = this.shadowRoot.querySelector('wc-publications');
+    this.__awards = this.shadowRoot.querySelector('wc-awards');
+    this.__volunteer = this.shadowRoot.querySelector('wc-volunteer');
+    this.__languages = this.shadowRoot.querySelector('wc-languages');
+    this.__interests = this.shadowRoot.querySelector('wc-interests');
+    this.__references = this.shadowRoot.querySelector('wc-references');
     this.__initialized = true;
   }
 
-  async setTemplate () {
-    let path = this.getAttribute('template');
+  async setTheme () {
+    let path = this.getAttribute('theme');
     if (!(/\/$/.test(path))) { path = path + '/'; }
 
-    this.__style.innerHTML = await this.getTemplate(path, 'style.css');
-    if (this.__contact) { this.__contact.template = await this.getTemplate(path, 'contact.html'); }
-    if (this.__about) { this.__about.template = await this.getTemplate(path, 'about.html'); }
-    if (this.__profiles) { this.__profiles.template = await this.getTemplate(path, 'profiles.html'); }
-    if (this.__skills) { this.__skills.template = await this.getTemplate(path, 'skills.html'); }
-    if (this.__work) { this.__work.template = await this.getTemplate(path, 'work.html'); }
-    if (this.__projects) { this.__projects.template = await this.getTemplate(path, 'projects.html'); }
-    if (this.__education) { this.__education.template = await this.getTemplate(path, 'education.html'); }
-    if (this.__publications) { this.__publications.template = await this.getTemplate(path, 'publications.html'); }
-    if (this.__awards) { this.__awards.template = await this.getTemplate(path, 'awards.html'); }
-    if (this.__volunteer) { this.__volunteer.template = await this.getTemplate(path, 'volunteer.html'); }
-    if (this.__languages) { this.__languages.template = await this.getTemplate(path, 'languages.html'); }
-    if (this.__interests) { this.__interests.template = await this.getTemplate(path, 'interests.html'); }
-    if (this.__references) { this.__references.template = await this.getTemplate(path, 'references.html'); }
+    this.__style.innerHTML = await this.fetchTheme(path, 'style.css');
+    if (this.__contact) { this.__contact.template = await this.fetchTheme(path, 'contact.html'); }
+    if (this.__about) { this.__about.template = await this.fetchTheme(path, 'about.html'); }
+    if (this.__profiles) { this.__profiles.template = await this.fetchTheme(path, 'profiles.html'); }
+    if (this.__skills) { this.__skills.template = await this.fetchTheme(path, 'skills.html'); }
+    if (this.__work) { this.__work.template = await this.fetchTheme(path, 'work.html'); }
+    if (this.__projects) { this.__projects.template = await this.fetchTheme(path, 'projects.html'); }
+    if (this.__education) { this.__education.template = await this.fetchTheme(path, 'education.html'); }
+    if (this.__publications) { this.__publications.template = await this.fetchTheme(path, 'publications.html'); }
+    if (this.__awards) { this.__awards.template = await this.fetchTheme(path, 'awards.html'); }
+    if (this.__volunteer) { this.__volunteer.template = await this.fetchTheme(path, 'volunteer.html'); }
+    if (this.__languages) { this.__languages.template = await this.fetchTheme(path, 'languages.html'); }
+    if (this.__interests) { this.__interests.template = await this.fetchTheme(path, 'interests.html'); }
+    if (this.__references) { this.__references.template = await this.fetchTheme(path, 'references.html'); }
   }
 
-  async getTemplate (path, partial) {
+  async fetchTheme (path, partial) {
     const response = await fetch(path + partial);
+    if (response.status !== 200) return '';
     return response.text();
+  }
+
+  async setSrc () {
+    const contents = await this.fetchSrc();
+    this.__data = contents;
+  }
+
+  async fetchSrc () {
+    const response = await fetch(this.src);
+    if (response.status !== 200) throw Error(`ERR ${response.status}: ${response.statusText}`);
+    return response.json();
   }
 
   render () {
