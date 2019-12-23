@@ -1,1 +1,1 @@
-export { default } from './src/wc-resume.js';
+export { default } from './dist/wc-resume.js';
