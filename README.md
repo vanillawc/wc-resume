@@ -20,20 +20,23 @@ Then import the `index.js` file at the root of the package.
 
 ## Usage
 
+**Attributes**
+
+- `src` - The source resume.json file
+- `theme` - Path to a resume theme directory
+
 ### Load `resume.json`
 
 ```html
-<wc-resume src="assets/sample.md"></wc-resume>
+<wc-resume src="resume.json"></wc-resume>
 ```
-
-***Demo: [WC-Resume - 'src' Attribute][]**
 
 ### Customizing Content
 
 Customize the sections and their order by adding them inline.
 
 ```html
-<wc-resume src="assets/sample.md">
+<wc-resume src="resume.json">
   <wc-contact>
   <wc-summary>
   <wc-work>
@@ -41,17 +44,19 @@ Customize the sections and their order by adding them inline.
 </wc-resume>
 ```
 
-### Use a Theme
+### Themes
 
 Resume themes are made up of a collection of partials and a `styles.css` file. To select a theme point to its directory using the `theme` attribute.
 
 ```html
-<wc-resume src="sample.json" theme="../themes/test/"></wc-resume>
+<wc-resume src="resume.json" theme="/path/to/theme/"></wc-resume>
 ```
 
 Themes can be found in the `themes/` directory.
 
-***Demo: [WC-Resume - 'theme' Attribute][]**
+**Themes**
+- Compact
+- Positive
 
 ## Building Custom Theme
 
@@ -80,6 +85,9 @@ theme
 `styles.css` is where the theme's CSS styling is defined
 
 [tagged template literal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-[WC-Resume - 'src' Attribute]: https://vanillawc.github.io/wc-resume/demo/src-attribute.html
-[WC-Resume - 'theme' Attribute]: https://vanillawc.github.io/wc-resume/demo/theme-attribute.html
 
+-----
+
+## Demos
+
+### [WC-Resume - WebComponents.dev](https://webcomponents.dev/edit/DUcJnEutaKbTPYqkcuYX?sv=1&pm=1)
