@@ -9,7 +9,25 @@
 function interpolate (template, tags = {}) {
   const keys = Object.keys(tags);
   const values = Object.values(tags);
-  return new Function(...keys, `return \`${template}\`;`)(...values);
+  try {
+    return new Function(...keys, `return \`${template}\`;`)(...values);
+  } catch (e) {
+    throw new TemplateException(template, tags, e);
+  }
+}
+
+class TemplateException extends Error {
+  constructor (template, tags, message) {
+    super();
+    this.name = 'TemplateError';
+    let msg = '\n------------------\n';
+    msg += `Template: \`${template}\``;
+    msg += '\n------------------\n';
+    msg += `Tags: ${JSON.stringify(tags, null, 2)}`;
+    msg += '\n------------------\n';
+    msg += message;
+    this.message = msg;
+  }
 }
 
 /* eslint no-undef: 0 */
@@ -51,11 +69,17 @@ class WCContact extends HTMLElement {
 
   static default ({ name, label, image, email, phone, url, location }) {
     return `
-      <h1>${name}, ${label}</h1>
-      <div><a href="mailto:${email}">${email}</a></div>
-      <div>${phone}</div>
-      <div>${location.city}, ${location.region}, ${location.countryCode}</div>
-      <div><a href="${url}">${url}</a></div>
+      <h1>${name}${label ? `, ${label}` : ''}</h1>
+      ${email ? `<div><a href="mailto:${email}">${email}</a></div>` : ''}
+      ${phone ? `<div>${phone}</div>` : ''}
+      ${location ? `
+        <div> 
+        <div>${location.address}</div>
+        <div>${location.city}, ${location.postalCode}</div>
+        ${location.region ? `<div>${location.region}</div>` : ''}
+        ${location.countryCode ? `<div>${location.countryCode}</div>` : ''}
+      ` : ''}
+      ${url ? `<div><a href="${url}">${url}</a></div>` : ''}
       <hr>`;
   }
 }
@@ -93,7 +117,7 @@ class WCAbout extends HTMLElement {
 
   static default ({ summary }) {
     return `
-      <div>${summary}</div>
+      ${summary ? `<div>${summary}</div>` : ''}
       <hr>`;
   }
 }
@@ -132,7 +156,10 @@ class WCProfiles extends HTMLElement {
   static default ({ profiles }) {
     return `
       ${profiles.map(profile => `
-        <div>${profile.network}: <a href="${profile.url}">${profile.username}</a></div>
+        <div>${profile.network}:
+          ${profile.url ? `<a href="${profile.url}">${profile.username}</a>` : ''}
+          ${!profile.url ? `${profile.username}` : ''}
+        </div>
       `).join('\n')}
       <hr>`;
   }
@@ -173,8 +200,10 @@ class WCSkills extends HTMLElement {
     return `
       ${skills.map(skill => `
         <div>
-          <span style="font-weight: bold">${skill.name} (${skill.level}): </span>
-          <span>${skill.keywords.join(', ')}</span>
+          <span style="font-weight: bold">${skill.name}${skill.level ? ` (${skill.level})` : ''}: </span>
+          ${skill.keywords ? `
+            <span>${skill.keywords.join(', ')}</span>
+          ` : ''}
         </div>
       `).join('\n')}
       <hr>`;
@@ -216,17 +245,22 @@ class WCWork extends HTMLElement {
     return `
       ${jobs.map(job => `
         <div>
-          <div style="float:left; font-weight: bold">${job.name}, ${job.position}</div>
-          <div style="float:right;">${job.startDate} - ${job.endDate}</div>
-          <div style="clear:both"><a href="${job.url}">${job.url}</a></div>
-          <div>${job.location}</div>
-          <div>${job.description}</div>      
-          <div>${job.summary}</div>
-          <ul>
-            ${job.highlights.map(highlight => `
-              <li>${highlight}</li>
-            `).join('\n')}
-          </ul>
+          <div style="float:left; font-weight: bold">${job.name}${job.position ? `, ${job.position}` : ''}</div>
+          <div style="float:right;">
+            ${job.startDate}${job.endDate ? ` - ${job.endDate}` : ''}
+          </div>
+          <div style="clear:both;"></div>
+          ${job.url ? `<div><a href="${job.url}">${job.url}</a></div>` : ''}
+          ${job.url ? `<div>${job.location}</div>` : ''}
+          ${job.description ? `<div>${job.description}</div>` : ''}
+          ${job.summary ? `<div>${job.summary}</div>` : ''}
+          ${job.highlights ? `
+            <ul>
+              ${job.highlights.map(highlight => `
+                <li>${highlight}</li>
+              `).join('\n')}
+            </ul>`
+          : ''}
         </div>
       `).join('\n')}
       <hr>`;
@@ -268,18 +302,29 @@ class WCProjects extends HTMLElement {
     return `
       ${projects.map(project => `
         <div>
-          <div style="float:left; font-weight: bold">${project.name} (${project.type})</div>
-          <div style="float:right;">${project.startDate} - ${project.endDate}</div>
-          <div style="clear:both"><a href="${project.url}">${project.url}</a></div>
-          <div>${project.description}</div>
-          <div>${project.entity}</div>
-          <div>${project.roles.join(', ')}</div>
-          <ul>
-            ${project.highlights.map(highlight => `
-              <li>${highlight}</li>
-            `).join('\n')}
-          </ul>
-          <div>${project.keywords.join(', ')}</div>
+          <div style="float:left; font-weight: bold">${project.name}
+            ${project.type ? `(${project.type})` : ''}
+          </div>
+          ${project.startDate && project.endDate ? `
+            <div style="float:right;">${project.startDate} - ${project.endDate}</div>
+          ` : ''}
+          <div style="clear:both"></div>
+          ${project.url ? `<div><a href="${project.url}">${project.url}</a></div>` : ''}
+          ${project.description ? `<div>${project.description}</div>` : ''}
+          ${project.entity ? `<div>${project.entity}</div>` : ''}
+          ${project.roles ? `
+            <div>${project.roles.join(', ')}</div>
+          ` : ''}
+          ${project.highlights ? `
+            <ul>
+              ${project.highlights.map(highlight => `
+                <li>${highlight}</li>
+              `).join('\n')}
+            </ul>
+          ` : ''}
+          ${projects.keywords ? `
+            <div>${project.keywords.join(', ')}</div>
+          ` : ''}
         </div>
       `).join('\n')}
       <hr>`;
@@ -323,12 +368,16 @@ class WCEducation extends HTMLElement {
         <div>
           <div style="float:left; font-weight: bold">${school.institution}</div>
           <div style="float:right;">${school.startDate} - ${school.endDate}</div>
-          <div style="clear: both">${school.studyType} - ${school.area}, ${school.gpa}</div>
-          <ul>
-            ${school.courses.map(course => `
-              <li>${course}</li>
-            `).join('\n')}
-          </ul>
+          <div style="clear: both">${school.studyType} - ${school.area}
+            ${school.gpa ? `(${school.gpa} GPA)` : ''}
+          </div>
+          ${school.courses ? `
+            <ul>
+              ${school.courses.map(course => `
+                <li>${course}</li>
+              `).join('\n')}
+            </ul>
+          ` : ''}
         </div>
       `).join('\n')}
       <hr>`;
@@ -370,10 +419,11 @@ class WCPublications extends HTMLElement {
     return `
       ${publications.map(publication => `
         <div>
-          <div style="float:left; font-weight: bold">${publication.name}, ${publication.publisher}</div>
-          <div style="float:right;">${publication.releaseDate}</div>
-          <div style="clear:both"><a href="${publication.url}">${publication.url}</a></div>
-          <div>${publication.summary}</div>
+          <div style="float:left; font-weight: bold">${publication.name}${publication.publisher ? `, ${publication.publisher}` : ''}</div>
+          ${publication.releaseDate ? `<div style="float:right;">${publication.releaseDate}</div>` : ''}
+          <div style="clear:both"></div>
+          ${publication.url ? `<div<a href="${publication.url}">${publication.url}</a></div>` : ''}
+          ${publication.summary ? `<div>${publication.summary}</div>` : ''}
         </div>
       `)}
       <hr>`;
@@ -415,9 +465,12 @@ class WCAwards extends HTMLElement {
     return `
       ${awards.map(award => `
         <div>
-          <div style="float:left; font-weight: bold">${award.title}, ${award.awarder}</div>
-          <div style="float:right;">${award.date}</div>
-          <div style="clear:both">${award.summary}</div>
+          <div style="float:left; font-weight: bold">${award.title}
+            ${award.awarder ? `, ${award.awarder}` : ''}
+          </div>
+          ${award.date ? `<div style="float:right;">${award.date}</div>` : ''}
+          <div style="clear:both"></div>
+          ${award.summary ? `<div>${award.summary}</div>` : ''}
         </div>
       `)}
       <hr>`;
@@ -459,15 +512,18 @@ class WCVolunteer extends HTMLElement {
     return `
       ${roles.map(role => `
         <div>
-          <div style="float:left; font-weight: bold">${role.organization}, ${role.position}</div>
+          <div style="float:left; font-weight: bold">${role.organization}${role.position ? `, ${role.position}` : ''}</div>
           <div style="float:right;">${role.startDate} - ${role.endDate}</div>
-          <div style="clear:both"><a href="${role.url}">${role.url}</a></div>
-          <div>${role.summary}</div>
-          <ul>
-            ${role.highlights.map(highlight => `
-              <li>${highlight}</li>
-            `).join('\n')}
-          </ul>
+          <div style="clear:both"></div>
+          ${role.url ? `<div><a href="${role.url}">${role.url}</a></div>` : ''}
+          ${role.summary ? `<div>${role.summary}</div>` : ''}
+          ${role.highlights ? `
+            <ul>
+              ${role.highlights.map(highlight => `
+                <li>${highlight}</li>
+              `).join('\n')}
+            </ul>
+          ` : ''}
         </div>
       `)}
       <hr>`;
@@ -508,7 +564,9 @@ class WCLanguages extends HTMLElement {
   static default ({ languages }) {
     return `
       ${languages.map(language => `
-        <div><span style="font-weight: bold">${language.language} (${language.fluency})</div>
+        <div><span style="font-weight: bold">${language.language}
+          ${language.fluency ? `(${language.fluency})` : ''}
+        </div>
       `).join('\n')}
       <hr>`;
   }
@@ -550,7 +608,9 @@ class WCInterests extends HTMLElement {
       ${interests.map(interest => `
         <div>
           <span style="font-weight: bold">${interest.name}:</span>
-          <span>[ ${interest.keywords.join(', ')} ]</span>
+          ${interest.keywords ? `
+            <span>[ ${interest.keywords.join(', ')} ]</span>
+          ` : ''}
         </div>
       `).join('\n')}
       <hr>`;
