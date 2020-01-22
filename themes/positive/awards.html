@@ -5,11 +5,11 @@
       <div class="name">
         <h3>
         <span>${award.title}</a></span>
-        <span> - ${award.awarder}</span>
+        ${award.awarder ? `<span>- ${award.awarder}</span>` : ''}
       </h3>
       </div>
-      <div class="dates">${award.date}</div>
+      ${award.date ? `<div class="dates">${award.date}</div>` : ''}
     </div>
-    <div>${award.summary}</div>
+    ${award.summary ? `<div>${award.summary}</div>` : ''}
   `)}
 </section>

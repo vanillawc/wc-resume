@@ -3,7 +3,7 @@
   flex-direction: column;
   max-width: 800px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 15px 15px 15px 40px;
 }
 
 html, body, main, section, table, header, ul, p, h1, h2, h3 {
@@ -47,7 +47,7 @@ h2 {
 }
 
 h3, .tenure {
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: 400;
 }
 
@@ -101,7 +101,7 @@ hr {
 
 .name {
   display: flex;
-  flex: 3;
+  flex: 4;
 }
 
 .dates {

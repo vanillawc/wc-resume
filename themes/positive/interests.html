@@ -3,7 +3,7 @@
   ${interests.map(interest => `
     <tr>
       <td>${interest.name}</td>
-      <td>${interest.keywords.join(', ')}</td>
+      ${interest.keywords ? `<td>${interest.keywords.join(', ')}</td>` : ''}
     </tr>
   `).join('\n')}
 </table>

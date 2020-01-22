@@ -4,18 +4,19 @@
     <div class="header">
       <div class="name">
         <h3>
-        <span>${school.area}</span>
-        <span>, ${school.institution}</span>
-        <span> (${school.studyType})</span>
+        <span>${school.area}, ${school.institution}</span>
+        ${school.studyType ? `<span>(${school.studyType})</span>` : ''}
       </h3>
       </div>
       <div class="dates">${school.startDate} - ${school.endDate}</div>
     </div>
-    <ul class="highlights">
-      ${school.courses.map(course => `
-        <li>${course}</li>
-      `).join('\n')}
-    </ul>
+      ${school.courses ? `
+      <ul class="highlights">
+        ${school.courses.map(course => `
+          <li>${course}</li>
+        `).join('\n')}
+      </ul>
+    ` : ''}
   </div>
   `)}
 </section>
