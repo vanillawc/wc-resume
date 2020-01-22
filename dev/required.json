@@ -1,0 +1,70 @@
+{
+  "basics": {
+    "name": "Richard Hendriks",
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "neutralthoughts"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Pied Piper",
+      "startDate": "2013-12-01",
+      "endDate": "2014-12-01"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "CoderDojo",
+      "startDate": "2012-01-01",
+      "endDate": "2013-01-01"
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Oklahoma",
+      "area": "Information Technology",
+      "studyType": "Bachelor",
+      "startDate": "2011-06-01",
+      "endDate": "2014-01-01"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Digital Compression Pioneer Award"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Video compression for 3d media"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Web Development"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife"
+    }
+  ],
+  "references": [
+    {
+      "name": "Erlich Bachman",
+      "reference": "It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Miss Direction"
+    }
+  ]
+}
