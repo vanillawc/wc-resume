@@ -32,9 +32,12 @@ export class WCAwards extends HTMLElement {
     return `
       ${awards.map(award => `
         <div>
-          <div style="float:left; font-weight: bold">${award.title}, ${award.awarder}</div>
-          <div style="float:right;">${award.date}</div>
-          <div style="clear:both">${award.summary}</div>
+          <div style="float:left; font-weight: bold">${award.title}
+            ${award.awarder ? `, ${award.awarder}` : ''}
+          </div>
+          ${award.date ? `<div style="float:right;">${award.date}</div>` : ''}
+          <div style="clear:both"></div>
+          ${award.summary ? `<div>${award.summary}</div>` : ''}
         </div>
       `)}
       <hr>`;

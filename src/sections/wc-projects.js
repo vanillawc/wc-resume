@@ -32,18 +32,29 @@ export class WCProjects extends HTMLElement {
     return `
       ${projects.map(project => `
         <div>
-          <div style="float:left; font-weight: bold">${project.name} (${project.type})</div>
-          <div style="float:right;">${project.startDate} - ${project.endDate}</div>
-          <div style="clear:both"><a href="${project.url}">${project.url}</a></div>
-          <div>${project.description}</div>
-          <div>${project.entity}</div>
-          <div>${project.roles.join(', ')}</div>
-          <ul>
-            ${project.highlights.map(highlight => `
-              <li>${highlight}</li>
-            `).join('\n')}
-          </ul>
-          <div>${project.keywords.join(', ')}</div>
+          <div style="float:left; font-weight: bold">${project.name}
+            ${project.type ? `(${project.type})` : ''}
+          </div>
+          ${project.startDate && project.endDate ? `
+            <div style="float:right;">${project.startDate} - ${project.endDate}</div>
+          ` : ''}
+          <div style="clear:both"></div>
+          ${project.url ? `<div><a href="${project.url}">${project.url}</a></div>` : ''}
+          ${project.description ? `<div>${project.description}</div>` : ''}
+          ${project.entity ? `<div>${project.entity}</div>` : ''}
+          ${project.roles ? `
+            <div>${project.roles.join(', ')}</div>
+          ` : ''}
+          ${project.highlights ? `
+            <ul>
+              ${project.highlights.map(highlight => `
+                <li>${highlight}</li>
+              `).join('\n')}
+            </ul>
+          ` : ''}
+          ${projects.keywords ? `
+            <div>${project.keywords.join(', ')}</div>
+          ` : ''}
         </div>
       `).join('\n')}
       <hr>`;

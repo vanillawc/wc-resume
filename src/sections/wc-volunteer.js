@@ -32,15 +32,18 @@ export class WCVolunteer extends HTMLElement {
     return `
       ${roles.map(role => `
         <div>
-          <div style="float:left; font-weight: bold">${role.organization}, ${role.position}</div>
+          <div style="float:left; font-weight: bold">${role.organization}${role.position ? `, ${role.position}` : ''}</div>
           <div style="float:right;">${role.startDate} - ${role.endDate}</div>
-          <div style="clear:both"><a href="${role.url}">${role.url}</a></div>
-          <div>${role.summary}</div>
-          <ul>
-            ${role.highlights.map(highlight => `
-              <li>${highlight}</li>
-            `).join('\n')}
-          </ul>
+          <div style="clear:both"></div>
+          ${role.url ? `<div><a href="${role.url}">${role.url}</a></div>` : ''}
+          ${role.summary ? `<div>${role.summary}</div>` : ''}
+          ${role.highlights ? `
+            <ul>
+              ${role.highlights.map(highlight => `
+                <li>${highlight}</li>
+              `).join('\n')}
+            </ul>
+          ` : ''}
         </div>
       `)}
       <hr>`;

@@ -30,7 +30,7 @@ export class WCAbout extends HTMLElement {
 
   static default ({ summary }) {
     return `
-      <div>${summary}</div>
+      ${summary ? `<div>${summary}</div>` : ''}
       <hr>`;
   }
 }

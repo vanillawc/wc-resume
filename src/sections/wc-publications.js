@@ -32,10 +32,11 @@ export class WCPublications extends HTMLElement {
     return `
       ${publications.map(publication => `
         <div>
-          <div style="float:left; font-weight: bold">${publication.name}, ${publication.publisher}</div>
-          <div style="float:right;">${publication.releaseDate}</div>
-          <div style="clear:both"><a href="${publication.url}">${publication.url}</a></div>
-          <div>${publication.summary}</div>
+          <div style="float:left; font-weight: bold">${publication.name}${publication.publisher ? `, ${publication.publisher}` : ''}</div>
+          ${publication.releaseDate ? `<div style="float:right;">${publication.releaseDate}</div>` : ''}
+          <div style="clear:both"></div>
+          ${publication.url ? `<div<a href="${publication.url}">${publication.url}</a></div>` : ''}
+          ${publication.summary ? `<div>${publication.summary}</div>` : ''}
         </div>
       `)}
       <hr>`;

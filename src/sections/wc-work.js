@@ -32,17 +32,22 @@ export class WCWork extends HTMLElement {
     return `
       ${jobs.map(job => `
         <div>
-          <div style="float:left; font-weight: bold">${job.name}, ${job.position}</div>
-          <div style="float:right;">${job.startDate} - ${job.endDate}</div>
-          <div style="clear:both"><a href="${job.url}">${job.url}</a></div>
-          <div>${job.location}</div>
-          <div>${job.description}</div>      
-          <div>${job.summary}</div>
-          <ul>
-            ${job.highlights.map(highlight => `
-              <li>${highlight}</li>
-            `).join('\n')}
-          </ul>
+          <div style="float:left; font-weight: bold">${job.name}${job.position ? `, ${job.position}` : ''}</div>
+          <div style="float:right;">
+            ${job.startDate}${job.endDate ? ` - ${job.endDate}` : ''}
+          </div>
+          <div style="clear:both;"></div>
+          ${job.url ? `<div><a href="${job.url}">${job.url}</a></div>` : ''}
+          ${job.url ? `<div>${job.location}</div>` : ''}
+          ${job.description ? `<div>${job.description}</div>` : ''}
+          ${job.summary ? `<div>${job.summary}</div>` : ''}
+          ${job.highlights ? `
+            <ul>
+              ${job.highlights.map(highlight => `
+                <li>${highlight}</li>
+              `).join('\n')}
+            </ul>`
+          : ''}
         </div>
       `).join('\n')}
       <hr>`;

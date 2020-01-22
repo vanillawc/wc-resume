@@ -34,12 +34,16 @@ export class WCEducation extends HTMLElement {
         <div>
           <div style="float:left; font-weight: bold">${school.institution}</div>
           <div style="float:right;">${school.startDate} - ${school.endDate}</div>
-          <div style="clear: both">${school.studyType} - ${school.area}, ${school.gpa}</div>
-          <ul>
-            ${school.courses.map(course => `
-              <li>${course}</li>
-            `).join('\n')}
-          </ul>
+          <div style="clear: both">${school.studyType} - ${school.area}
+            ${school.gpa ? `(${school.gpa} GPA)` : ''}
+          </div>
+          ${school.courses ? `
+            <ul>
+              ${school.courses.map(course => `
+                <li>${course}</li>
+              `).join('\n')}
+            </ul>
+          ` : ''}
         </div>
       `).join('\n')}
       <hr>`;

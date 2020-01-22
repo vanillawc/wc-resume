@@ -31,7 +31,9 @@ export class WCLanguages extends HTMLElement {
   static default ({ languages }) {
     return `
       ${languages.map(language => `
-        <div><span style="font-weight: bold">${language.language} (${language.fluency})</div>
+        <div><span style="font-weight: bold">${language.language}
+          ${language.fluency ? `(${language.fluency})` : ''}
+        </div>
       `).join('\n')}
       <hr>`;
   }
