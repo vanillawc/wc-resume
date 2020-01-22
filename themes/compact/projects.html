@@ -4,20 +4,28 @@ ${projects.map(project => `
   <div class="header">
     <div class="name">
       <h3>
-      <span>${project.roles.join(', ')}</span>
-      <span> - </span>
+      ${project.roles ? `
+        <span>${project.roles.join(', ')}</span>
+        <span> - </span>
+      ` : ''}
       <span><a href="${project.url}">${project.name}</a></span>
-      <span> (${project.type})</span>
+      ${project.type ? `<span> (${project.type})</span>` : ''}
     </h3>
     </div>
-    <div class="dates">${project.startDate} - ${project.endDate}</div>
+    ${ projects.startDate && projects.endDate ? `
+      <div class="dates">${project.startDate} - ${project.endDate}</div>
+    ` : ''}
   </div>
-  <div>${project.description}</div>
-  <ul class="highlights">
-    ${project.highlights.map(highlight => `
-      <li>${highlight}</li>
-    `).join('\n')}
-  </ul>
-  <div class="keywords">${project.keywords.join(', ')}</div>
+  ${project.description ? `<div>${project.description}</div>` : ''}
+  ${project.highlights ? `
+    <ul class="highlights">
+      ${project.highlights.map(highlight => `
+        <li>${highlight}</li>
+      `).join('\n')}
+    </ul>
+  ` : ''}
+  ${project.keywords ? `
+    <div class="keywords">${project.keywords.join(', ')}</div>
+  ` : ''}
 </div>
 `)}

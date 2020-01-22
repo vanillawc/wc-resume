@@ -59,13 +59,13 @@ p, li {
 
 .name {
   display: flex;
-  flex: 2;
+  flex: 4;
 }
 
 .dates {
   display: flex;
   justify-content: flex-end;
-  flex: 2;
+  flex: 3;
 }
 
 .keywords {

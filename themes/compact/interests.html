@@ -1,5 +1,7 @@
 <hr>
 <h2><i class="fa fa-lg fa-bicycle"></i>Interests</h2>
 ${interests.map(interest => `
-  ${interest.name} - ${interest.keywords.join(', ')}
+  <div>${interest.name}
+    ${interest.keywords ? `- ${interest.keywords.join(', ')}` : ''}
+  </div>
 `)}
