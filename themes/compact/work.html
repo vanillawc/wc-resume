@@ -11,6 +11,6 @@ ${jobs.map(job => `
   ${job.highlights ? `
     <ul class="highlights">
       ${job.highlights.map(highlight => `<li>${highlight}</li>`).join('\n')}
-    </ul>` : ''}
-</div>
-`)}
+    </ul>
+  ` : ''}
+`).join('\n')}
