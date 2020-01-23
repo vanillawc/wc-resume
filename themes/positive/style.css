@@ -101,13 +101,13 @@ hr {
 
 .name {
   display: flex;
-  flex: 4;
+  flex: 5;
 }
 
 .dates {
   display: flex;
   justify-content: flex-end;
-  flex: 1;
+  flex: 2;
   color: #6F6F6F;
   padding: 4px 6px;
   font-size: 85%;
