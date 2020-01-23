@@ -41,7 +41,7 @@ h1 {
 h2 {
   text-transform: uppercase;
   color: #898989;
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: 300;
   display: inline-block;
 }
@@ -159,7 +159,7 @@ wc-contact .contacts {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
+  flex: 2;
 }
 
 wc-contact .label {
