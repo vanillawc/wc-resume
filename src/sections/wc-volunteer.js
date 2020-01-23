@@ -45,7 +45,7 @@ export class WCVolunteer extends HTMLElement {
             </ul>
           ` : ''}
         </div>
-      `)}
+      `).join('\n')}
       <hr>`;
   }
 }

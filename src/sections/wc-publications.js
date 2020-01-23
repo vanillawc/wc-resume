@@ -38,7 +38,7 @@ export class WCPublications extends HTMLElement {
           ${publication.url ? `<div<a href="${publication.url}">${publication.url}</a></div>` : ''}
           ${publication.summary ? `<div>${publication.summary}</div>` : ''}
         </div>
-      `)}
+      `).join('\n')}
       <hr>`;
   }
 }

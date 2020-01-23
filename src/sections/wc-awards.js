@@ -39,7 +39,7 @@ export class WCAwards extends HTMLElement {
           <div style="clear:both"></div>
           ${award.summary ? `<div>${award.summary}</div>` : ''}
         </div>
-      `)}
+      `).join('\n')}
       <hr>`;
   }
 }

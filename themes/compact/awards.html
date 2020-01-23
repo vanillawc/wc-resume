@@ -11,4 +11,4 @@ ${awards.map(award => `
     ${award.date ? `<div class="dates">${award.date}</div>` : ''}
   </div>
   ${award.summary ? `<div>${award.summary}</div>` : ''}
-`)}
+`).join('\n')}

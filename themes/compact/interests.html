@@ -4,4 +4,4 @@ ${interests.map(interest => `
   <div>${interest.name}
     ${interest.keywords ? `- ${interest.keywords.join(', ')}` : ''}
   </div>
-`)}
+`).join('\n')}

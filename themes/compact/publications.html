@@ -11,4 +11,4 @@ ${publications.map(publication => `
     ${publication.releaseDate ? `<div class="dates">${publication.releaseDate}</div>` : ''}
   </div>
   ${publication.summary ? `<div>${publication.summary}</div>` : ''}
-`)}
+`).join('\n')}
