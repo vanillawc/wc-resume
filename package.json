@@ -10,7 +10,7 @@
     "resume"
   ],
   "repository": "https://github.com/vanillawc/wc-resume/",
-  "main": "src/wc-resume.js",
+  "main": "index.js",
   "scripts": {
     "start": "npx live-server --no-browser --port=5500 --open=dev",
     "lint": "semistandard",
