@@ -12,7 +12,11 @@ export class WCContact extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -21,6 +25,7 @@ export class WCContact extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = {
       name: this.__data.name,
       label: this.__data.label,
@@ -34,6 +39,11 @@ export class WCContact extends HTMLElement {
       this.__template = WCContact.default(tags);
     }
     this.innerHTML = Interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ name, label, image, email, phone, url, location }) {

@@ -12,7 +12,11 @@ export class WCEducation extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -21,11 +25,17 @@ export class WCEducation extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { schools: this.__data };
     if (!this.__template) {
       this.__template = WCEducation.default(tags);
     }
     this.innerHTML = Interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ schools }) {

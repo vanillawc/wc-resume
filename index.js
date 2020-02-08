@@ -43,7 +43,11 @@ class WCContact extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -52,6 +56,7 @@ class WCContact extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = {
       name: this.__data.name,
       label: this.__data.label,
@@ -65,6 +70,11 @@ class WCContact extends HTMLElement {
       this.__template = WCContact.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ name, label, image, email, phone, url, location }) {
@@ -99,7 +109,11 @@ class WCAbout extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -108,11 +122,17 @@ class WCAbout extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { summary: this.__data.summary };
     if (!this.__template) {
       this.__template = WCAbout.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ summary }) {
@@ -137,7 +157,11 @@ class WCProfiles extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -146,11 +170,17 @@ class WCProfiles extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { profiles: this.__data.profiles };
     if (!this.__template) {
       this.__template = WCProfiles.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ profiles }) {
@@ -181,7 +211,11 @@ class WCSkills extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -190,11 +224,17 @@ class WCSkills extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { skills: this.__data };
     if (!this.__template) {
       this.__template = WCSkills.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ skills }) {
@@ -226,7 +266,11 @@ class WCWork extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -235,11 +279,17 @@ class WCWork extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { jobs: this.__data };
     if (!this.__template) {
       this.__template = WCWork.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ jobs }) {
@@ -283,7 +333,11 @@ class WCProjects extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -292,11 +346,17 @@ class WCProjects extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { projects: this.__data };
     if (!this.__template) {
       this.__template = WCProjects.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ projects }) {
@@ -347,7 +407,11 @@ class WCEducation extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -356,11 +420,17 @@ class WCEducation extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { schools: this.__data };
     if (!this.__template) {
       this.__template = WCEducation.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ schools }) {
@@ -400,7 +470,11 @@ class WCPublications extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -409,11 +483,17 @@ class WCPublications extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { publications: this.__data };
     if (!this.__template) {
       this.__template = WCPublications.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ publications }) {
@@ -446,7 +526,11 @@ class WCAwards extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -455,11 +539,17 @@ class WCAwards extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { awards: this.__data };
     if (!this.__template) {
       this.__template = WCAwards.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ awards }) {
@@ -493,7 +583,11 @@ class WCVolunteer extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -502,11 +596,17 @@ class WCVolunteer extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { roles: this.__data };
     if (!this.__template) {
       this.__template = WCVolunteer.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ roles }) {
@@ -546,7 +646,11 @@ class WCLanguages extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -555,11 +659,17 @@ class WCLanguages extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { languages: this.__data };
     if (!this.__template) {
       this.__template = WCLanguages.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ languages }) {
@@ -588,7 +698,11 @@ class WCInterests extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -597,11 +711,17 @@ class WCInterests extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { interests: this.__data };
     if (!this.__template) {
       this.__template = WCInterests.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ interests }) {
@@ -633,7 +753,11 @@ class WCReferences extends HTMLElement {
   get data () { return this.__data; }
   set data (value) {
     this.__data = value;
-    this.render();
+    if (value) {
+      this.render();
+    } else {
+      this.renderNull();
+    }
   }
 
   get template () { return this.__template; }
@@ -642,11 +766,17 @@ class WCReferences extends HTMLElement {
   }
 
   async render () {
+    this.style.display = '';
     const tags = { references: this.__data };
     if (!this.__template) {
       this.__template = WCReferences.default(tags);
     }
     this.innerHTML = interpolate(this.__template, tags);
+  }
+
+  renderNull () {
+    this.style.display = 'none';
+    this.innerHTML = '';
   }
 
   static default ({ references }) {
