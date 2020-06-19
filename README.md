@@ -44,20 +44,7 @@ Try it on [WebComponents.dev](https://webcomponents.dev/edit/DUcJnEutaKbTPYqkcuY
 <wc-resume src="resume.json"></wc-resume>
 ```
 
-### Customizing Content
-
-Customize the sections and their order by adding them inline.
-
-```html
-<wc-resume src="resume.json">
-  <wc-contact>
-  <wc-summary>
-  <wc-work>
-  <wc-skills>
-</wc-resume>
-```
-
-### Themes
+### Theming
 
 Resume themes are made up of a collection of partials and a `styles.css` file. To select a theme point to its directory using the `theme` attribute.
 
@@ -68,6 +55,7 @@ Resume themes are made up of a collection of partials and a `styles.css` file. T
 Themes can be found in the `themes/` directory.
 
 **Themes**
+- Default
 - Compact
 - Positive
 
