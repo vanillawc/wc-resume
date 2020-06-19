@@ -1,22 +1,35 @@
-[![GitHub Releases](https://badgen.net/github/tag/vanillawc/wc-resume)](https://github.com/vanillawc/wc-resume/releases)
-[![NPM Release](https://badgen.net/npm/v/@vanillawc/wc-resume)](https://www.npmjs.com/package/@vanillawc/wc-resume)
-[![Bundlephobia](https://badgen.net/bundlephobia/minzip/@vanillawc/wc-resume)](https://bundlephobia.com/result?p=@vanillawc/wc-resume)
-[![MIT License](https://badgen.net/github/license/vanillawc/wc-resume)](https://raw.githubusercontent.com/vanillawc/wc-resume/master/LICENSE)
-[![Published on WebComponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/vanillawc/wc-resume)
-[![Latest Status](https://github.com/vanillawc/wc-resume/workflows/Latest/badge.svg)](https://github.com/vanillawc/wc-resume/actions)
-[![Release Status](https://github.com/vanillawc/wc-resume/workflows/Release/badge.svg)](https://github.com/vanillawc/wc-resume/actions)
+<h1 align="center">&lt;wc-resume&gt;: Embed a JSONResume</h1>
 
-A Vanilla Web Component to Resume.json content in a styled theme
+<div align="center">
+  <a href="https://github.com/vanillawc/wc-resume/releases"><img src="https://badgen.net/github/tag/vanillawc/wc-resume" alt="GitHub Releases"></a>
+  <a href="https://www.npmjs.com/package/@vanillawc/wc-resume"><img src="https://badgen.net/npm/v/@vanillawc/wc-resume" alt="NPM Releases"></a>
+  <a href="https://bundlephobia.com/result?p=@vanillawc/wc-resume"><img src="https://badgen.net/bundlephobia/minzip/@vanillawc/wc-resume" alt="Bundlephobia"></a>
+  <a href="https://raw.githubusercontent.com/vanillawc/wc-resume/master/LICENSE"><img src="https://badgen.net/github/license/vanillawc/wc-resume" alt="MIT License"></a>
+  <a href="https://www.webcomponents.org/element/vanillawc/wc-resume"><img src="https://img.shields.io/badge/webcomponents.org-published-blue.svg" alt="Published on WebComponents.org"></a>
+  <a href="https://github.com/vanillawc/wc-resume/actions"><img src="https://github.com/vanillawc/wc-resume/workflows/Latest/badge.svg" alt="Latest Status"></a>
+  <a href="https://github.com/vanillawc/wc-resume/actions"><img src="https://github.com/vanillawc/wc-resume/workflows/Release/badge.svg" alt="Release Status"></a>
+</div>
 
 ## Installation
 
+*Installation*
 ```sh
 npm i @vanillawc/wc-resume
 ```
 
-Then import the `index.js` file at the root of the package.
+*Import from NPM*
+```html
+<script type="module" src="node_modules/@vanillawc/wc-resume/index.js"></script>
+```
 
------
+*Import from CDN*
+```html
+<script type="module" src="https://cdn.jsdelivr.net/gh/vanillawc/wc-resume/index.js"></script>
+```
+
+## Demo
+
+Try it on [WebComponents.dev](https://webcomponents.dev/edit/DUcJnEutaKbTPYqkcuYX?sv=1&pm=1)
 
 ## Usage
 
@@ -85,9 +98,3 @@ theme
 `styles.css` is where the theme's CSS styling is defined
 
 [tagged template literal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-
------
-
-## Demos
-
-### [WC-Resume - WebComponents.dev](https://webcomponents.dev/edit/DUcJnEutaKbTPYqkcuYX?sv=1&pm=1)
