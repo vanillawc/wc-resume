@@ -1,41 +1,41 @@
 /* eslint no-undef: 0 */
-import Interpolate from '../../node_modules/@vanillaes/interpolate/index.js';
+import Interpolate from '../../node_modules/@vanillaes/interpolate/index.js'
 
 export class WCPublications extends HTMLElement {
   constructor () {
-    super();
-    this.id = 'publications';
-    this.__data = null;
-    this.__template = null;
+    super()
+    this.id = 'publications'
+    this.__data = null
+    this.__template = null
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
-    this.__data = value;
+    this.__data = value
     if (value) {
-      this.render();
+      this.render()
     } else {
-      this.renderNull();
+      this.renderNull()
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
-    this.__template = value;
+    this.__template = value
   }
 
   async render () {
-    this.style.display = '';
-    const tags = { publications: this.__data };
+    this.style.display = ''
+    const tags = { publications: this.__data }
     if (!this.__template) {
-      this.__template = WCPublications.default(tags);
+      this.__template = WCPublications.default(tags)
     }
-    this.innerHTML = Interpolate(this.__template, tags);
+    this.innerHTML = Interpolate(this.__template, tags)
   }
 
   renderNull () {
-    this.style.display = 'none';
-    this.innerHTML = '';
+    this.style.display = 'none'
+    this.innerHTML = ''
   }
 
   static default ({ publications }) {
@@ -49,8 +49,8 @@ export class WCPublications extends HTMLElement {
           ${publication.summary ? `<div>${publication.summary}</div>` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
-customElements.define('wc-publications', WCPublications);
+customElements.define('wc-publications', WCPublications)

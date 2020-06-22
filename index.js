@@ -43,7 +43,7 @@ class WCContact extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -53,7 +53,7 @@ class WCContact extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -93,7 +93,7 @@ class WCContact extends HTMLElement {
         ${location.countryCode ? `<div>${location.countryCode}</div>` : ''}
       ` : ''}
       ${url ? `<div><a href="${url}">${url}</a></div>` : ''}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -109,7 +109,7 @@ class WCAbout extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -119,7 +119,7 @@ class WCAbout extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -141,7 +141,7 @@ class WCAbout extends HTMLElement {
   static default ({ summary }) {
     return `
       ${summary ? `<div>${summary}</div>` : ''}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -157,7 +157,7 @@ class WCProfiles extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -167,7 +167,7 @@ class WCProfiles extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -195,7 +195,7 @@ class WCProfiles extends HTMLElement {
           ${!profile.url ? `<span>${profile.username}</span>` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -211,7 +211,7 @@ class WCSkills extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -221,7 +221,7 @@ class WCSkills extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -250,7 +250,7 @@ class WCSkills extends HTMLElement {
           ` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -266,7 +266,7 @@ class WCWork extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -276,7 +276,7 @@ class WCWork extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -317,7 +317,7 @@ class WCWork extends HTMLElement {
           : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -333,7 +333,7 @@ class WCProjects extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -343,7 +343,7 @@ class WCProjects extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -391,7 +391,7 @@ class WCProjects extends HTMLElement {
           ` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -407,7 +407,7 @@ class WCEducation extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -417,7 +417,7 @@ class WCEducation extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -454,7 +454,7 @@ class WCEducation extends HTMLElement {
           ` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -470,7 +470,7 @@ class WCPublications extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -480,7 +480,7 @@ class WCPublications extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -510,7 +510,7 @@ class WCPublications extends HTMLElement {
           ${publication.summary ? `<div>${publication.summary}</div>` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -526,7 +526,7 @@ class WCAwards extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -536,7 +536,7 @@ class WCAwards extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -567,7 +567,7 @@ class WCAwards extends HTMLElement {
           ${award.summary ? `<div>${award.summary}</div>` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -583,7 +583,7 @@ class WCVolunteer extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -593,7 +593,7 @@ class WCVolunteer extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -630,7 +630,7 @@ class WCVolunteer extends HTMLElement {
           ` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -646,7 +646,7 @@ class WCLanguages extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -656,7 +656,7 @@ class WCLanguages extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -682,7 +682,7 @@ class WCLanguages extends HTMLElement {
           ${language.fluency ? `(${language.fluency})` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -698,7 +698,7 @@ class WCInterests extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -708,7 +708,7 @@ class WCInterests extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -737,7 +737,7 @@ class WCInterests extends HTMLElement {
           ` : ''}
         </div>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -753,7 +753,7 @@ class WCReferences extends HTMLElement {
     this.__template = null;
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     if (value) {
@@ -763,7 +763,7 @@ class WCReferences extends HTMLElement {
     }
   }
 
-  get template () { return this.__template; }
+  get template () { return this.__template }
   set template (value) {
     this.__template = value;
   }
@@ -790,7 +790,7 @@ class WCReferences extends HTMLElement {
           <footer>— <cite>${reference.name}</cite></footer>
         </blockquote>
       `).join('\n')}
-      <hr>`;
+      <hr>`
   }
 }
 
@@ -800,24 +800,24 @@ customElements.define('wc-references', WCReferences);
 
 class WCResume extends HTMLElement {
   static get observedAttributes () {
-    return ['src', 'data'];
+    return ['src', 'data']
   }
 
   attributeChangedCallback (name, oldValue, newValue) {
-    if (!this.__initialized) { return; }
+    if (!this.__initialized) { return }
     if (oldValue !== newValue) {
       this[name] = newValue;
     }
   }
 
-  get src () { return this.getAttribute('src'); }
+  get src () { return this.getAttribute('src') }
   set src (value) {
     this.setAttribute('src', value);
     this.setSrc();
     this.render();
   }
 
-  get data () { return this.__data; }
+  get data () { return this.__data }
   set data (value) {
     this.__data = value;
     this.render();
@@ -907,8 +907,8 @@ class WCResume extends HTMLElement {
 
   async fetchTheme (path, partial) {
     const response = await fetch(path + partial);
-    if (response.status !== 200) return '';
-    return response.text();
+    if (response.status !== 200) return ''
+    return response.text()
   }
 
   async setSrc () {
@@ -918,8 +918,8 @@ class WCResume extends HTMLElement {
 
   async fetchSrc () {
     const response = await fetch(this.src);
-    if (response.status !== 200) throw Error(`ERR ${response.status}: ${response.statusText}`);
-    return response.json();
+    if (response.status !== 200) throw Error(`ERR ${response.status}: ${response.statusText}`)
+    return response.json()
   }
 
   render () {
@@ -953,7 +953,7 @@ class WCResume extends HTMLElement {
       <wc-volunteer></wc-volunteer>
       <wc-languages></wc-languages>
       <wc-interests></wc-interests>
-      <wc-references></wc-references>`;
+      <wc-references></wc-references>`
   }
 }
 
