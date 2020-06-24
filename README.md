@@ -1,4 +1,4 @@
-<h1 align="center">&lt;wc-resume&gt;: Embed a JSONResume</h1>
+<h1 align="center">&lt;wc-resume&gt; Embed a JSONResume</h1>
 
 <div align="center">
   <a href="https://github.com/vanillawc/wc-resume/releases"><img src="https://badgen.net/github/tag/vanillawc/wc-resume" alt="GitHub Releases"></a>
