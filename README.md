@@ -4,10 +4,11 @@
   <a href="https://github.com/vanillawc/wc-resume/releases"><img src="https://badgen.net/github/tag/vanillawc/wc-resume" alt="GitHub Releases"></a>
   <a href="https://www.npmjs.com/package/@vanillawc/wc-resume"><img src="https://badgen.net/npm/v/@vanillawc/wc-resume" alt="NPM Releases"></a>
   <a href="https://bundlephobia.com/result?p=@vanillawc/wc-resume"><img src="https://badgen.net/bundlephobia/minzip/@vanillawc/wc-resume" alt="Bundlephobia"></a>
-  <a href="https://raw.githubusercontent.com/vanillawc/wc-resume/master/LICENSE"><img src="https://badgen.net/github/license/vanillawc/wc-resume" alt="MIT License"></a>
-  <a href="https://www.webcomponents.org/element/vanillawc/wc-resume"><img src="https://img.shields.io/badge/webcomponents.org-published-blue.svg" alt="Published on WebComponents.org"></a>
   <a href="https://github.com/vanillawc/wc-resume/actions"><img src="https://github.com/vanillawc/wc-resume/workflows/Latest/badge.svg" alt="Latest Status"></a>
   <a href="https://github.com/vanillawc/wc-resume/actions"><img src="https://github.com/vanillawc/wc-resume/workflows/Release/badge.svg" alt="Release Status"></a>
+
+  <a href="https://discord.gg/8ur9M5"><img alt="Discord" src="https://img.shields.io/discord/723296249121603604?color=%23738ADB"></a>
+  <a href="https://www.webcomponents.org/element/vanillawc/wc-resume"><img src="https://img.shields.io/badge/webcomponents.org-published-blue.svg" alt="Published on WebComponents.org"></a>
 </div>
 
 ## Installation
@@ -24,7 +25,7 @@ npm i @vanillawc/wc-resume
 
 *Import from CDN*
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/gh/vanillawc/wc-resume/index.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/vanillawc/wc-resume@2/index.js"></script>
 ```
 
 ## Demo
@@ -86,3 +87,7 @@ theme
 `styles.css` is where the theme's CSS styling is defined
 
 [tagged template literal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+## Contributing
+
+See [CONTRIBUTING.md](https://github.com/vanillawc/vanillawc/blob/main/CONTRIBUTING.md)
