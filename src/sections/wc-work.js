@@ -51,13 +51,14 @@ export class WCWork extends HTMLElement {
           ${job.url ? `<div>${job.location}</div>` : ''}
           ${job.description ? `<div>${job.description}</div>` : ''}
           ${job.summary ? `<div>${job.summary}</div>` : ''}
-          ${job.highlights ? `
-            <ul>
+          ${job.highlights
+            ? `<ul>
               ${job.highlights.map(highlight => `
                 <li>${highlight}</li>
               `).join('\n')}
             </ul>`
-          : ''}
+            : ''
+          }
         </div>
       `).join('\n')}
       <hr>`

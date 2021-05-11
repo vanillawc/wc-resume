@@ -43,9 +43,10 @@ export class WCInterests extends HTMLElement {
       ${interests.map(interest => `
         <div>
           <span style="font-weight: bold">${interest.name}:</span>
-          ${interest.keywords ? `
-            <span>[ ${interest.keywords.join(', ')} ]</span>
-          ` : ''}
+          ${interest.keywords
+            ? `<span>[ ${interest.keywords.join(', ')} ]</span>`
+            : ''
+          }
         </div>
       `).join('\n')}
       <hr>`

@@ -51,14 +51,17 @@ export class WCContact extends HTMLElement {
       <h1>${name}${label ? `, ${label}` : ''}</h1>
       ${email ? `<div><a href="mailto:${email}">${email}</a></div>` : ''}
       ${phone ? `<div>${phone}</div>` : ''}
-      ${location ? `
-        <div> 
-        <div>${location.address}</div>
-        <div>${location.city}, ${location.postalCode}</div>
-        ${location.region ? `<div>${location.region}</div>` : ''}
-        ${location.countryCode ? `<div>${location.countryCode}</div>` : ''}
-      ` : ''}
+      ${location
+        ? `<div> 
+            <div>${location.address}</div>
+            <div>${location.city}, ${location.postalCode}</div>
+            ${location.region ? `<div>${location.region}</div>` : ''}
+            ${location.countryCode ? `<div>${location.countryCode}</div>` : ''}
+          </div>`
+        : ''
+      }
       ${url ? `<div><a href="${url}">${url}</a></div>` : ''}
+
       <hr>`
   }
 }

@@ -43,9 +43,10 @@ export class WCSkills extends HTMLElement {
       ${skills.map(skill => `
         <div>
           <span style="font-weight: bold">${skill.name}${skill.level ? ` (${skill.level})` : ''}: </span>
-          ${skill.keywords ? `
-            <span>${skill.keywords.join(', ')}</span>
-          ` : ''}
+          ${skill.keywords
+            ? `<span>${skill.keywords.join(', ')}</span>`
+            : ''
+          }
         </div>
       `).join('\n')}
       <hr>`

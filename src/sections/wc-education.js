@@ -47,13 +47,14 @@ export class WCEducation extends HTMLElement {
           <div style="clear: both">${school.studyType} - ${school.area}
             ${school.gpa ? `(${school.gpa} GPA)` : ''}
           </div>
-          ${school.courses ? `
-            <ul>
-              ${school.courses.map(course => `
-                <li>${course}</li>
-              `).join('\n')}
-            </ul>
-          ` : ''}
+          ${school.courses
+            ? `<ul>
+                ${school.courses.map(course => `
+                  <li>${course}</li>
+                `).join('\n')}
+              </ul>`
+            : ''
+          }
         </div>
       `).join('\n')}
       <hr>`

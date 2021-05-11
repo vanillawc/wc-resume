@@ -47,13 +47,14 @@ export class WCVolunteer extends HTMLElement {
           <div style="clear:both"></div>
           ${role.url ? `<div><a href="${role.url}">${role.url}</a></div>` : ''}
           ${role.summary ? `<div>${role.summary}</div>` : ''}
-          ${role.highlights ? `
-            <ul>
+          ${role.highlights
+            ? `<ul>
               ${role.highlights.map(highlight => `
                 <li>${highlight}</li>
               `).join('\n')}
-            </ul>
-          ` : ''}
+            </ul>`
+            : ''
+          }
         </div>
       `).join('\n')}
       <hr>`

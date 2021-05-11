@@ -45,26 +45,30 @@ export class WCProjects extends HTMLElement {
           <div style="float:left; font-weight: bold">${project.name}
             ${project.type ? `(${project.type})` : ''}
           </div>
-          ${project.startDate && project.endDate ? `
-            <div style="float:right;">${project.startDate} - ${project.endDate}</div>
-          ` : ''}
+          ${project.startDate && project.endDate
+            ? `<div style="float:right;">${project.startDate} - ${project.endDate}</div>`
+            : ''
+          }
           <div style="clear:both"></div>
           ${project.url ? `<div><a href="${project.url}">${project.url}</a></div>` : ''}
           ${project.description ? `<div>${project.description}</div>` : ''}
           ${project.entity ? `<div>${project.entity}</div>` : ''}
-          ${project.roles ? `
-            <div>${project.roles.join(', ')}</div>
-          ` : ''}
-          ${project.highlights ? `
-            <ul>
+          ${project.roles
+            ? `<div>${project.roles.join(', ')}</div>`
+            : ''
+          }
+          ${project.highlights
+            ? `<ul>
               ${project.highlights.map(highlight => `
                 <li>${highlight}</li>
               `).join('\n')}
-            </ul>
-          ` : ''}
-          ${projects.keywords ? `
-            <div>${project.keywords.join(', ')}</div>
-          ` : ''}
+            </ul>`
+            : ''
+          }
+          ${projects.keywords
+            ? `<div>${project.keywords.join(', ')}</div>`
+            : ''
+          }
         </div>
       `).join('\n')}
       <hr>`

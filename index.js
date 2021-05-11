@@ -8,7 +8,7 @@ function interpolate(template, tags = {}) {
     throw new TemplateException(template, tags, e);
   }
 }
-class TemplateException extends Error {
+var TemplateException = class extends Error {
   constructor(template, tags, message) {
     super();
     this.name = "TemplateError";
@@ -20,10 +20,10 @@ class TemplateException extends Error {
     msg += message;
     this.message = msg;
   }
-}
+};
 
 // src/sections/wc-contact.js
-class WCContact extends HTMLElement {
+var WCContact = class extends HTMLElement {
   constructor() {
     super();
     this.id = "contact";
@@ -72,21 +72,21 @@ class WCContact extends HTMLElement {
       <h1>${name}${label ? `, ${label}` : ""}</h1>
       ${email ? `<div><a href="mailto:${email}">${email}</a></div>` : ""}
       ${phone ? `<div>${phone}</div>` : ""}
-      ${location ? `
-        <div> 
-        <div>${location.address}</div>
-        <div>${location.city}, ${location.postalCode}</div>
-        ${location.region ? `<div>${location.region}</div>` : ""}
-        ${location.countryCode ? `<div>${location.countryCode}</div>` : ""}
-      ` : ""}
+      ${location ? `<div> 
+            <div>${location.address}</div>
+            <div>${location.city}, ${location.postalCode}</div>
+            ${location.region ? `<div>${location.region}</div>` : ""}
+            ${location.countryCode ? `<div>${location.countryCode}</div>` : ""}
+          </div>` : ""}
       ${url ? `<div><a href="${url}">${url}</a></div>` : ""}
+
       <hr>`;
   }
-}
+};
 customElements.define("wc-contact", WCContact);
 
 // src/sections/wc-about.js
-class WCAbout extends HTMLElement {
+var WCAbout = class extends HTMLElement {
   constructor() {
     super();
     this.id = "about";
@@ -127,11 +127,11 @@ class WCAbout extends HTMLElement {
       ${summary ? `<div>${summary}</div>` : ""}
       <hr>`;
   }
-}
+};
 customElements.define("wc-about", WCAbout);
 
 // src/sections/wc-profiles.js
-class WCProfiles extends HTMLElement {
+var WCProfiles = class extends HTMLElement {
   constructor() {
     super();
     this.id = "profiles";
@@ -178,11 +178,11 @@ class WCProfiles extends HTMLElement {
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-profiles", WCProfiles);
 
 // src/sections/wc-skills.js
-class WCSkills extends HTMLElement {
+var WCSkills = class extends HTMLElement {
   constructor() {
     super();
     this.id = "skills";
@@ -223,18 +223,16 @@ class WCSkills extends HTMLElement {
       ${skills.map((skill) => `
         <div>
           <span style="font-weight: bold">${skill.name}${skill.level ? ` (${skill.level})` : ""}: </span>
-          ${skill.keywords ? `
-            <span>${skill.keywords.join(", ")}</span>
-          ` : ""}
+          ${skill.keywords ? `<span>${skill.keywords.join(", ")}</span>` : ""}
         </div>
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-skills", WCSkills);
 
 // src/sections/wc-work.js
-class WCWork extends HTMLElement {
+var WCWork = class extends HTMLElement {
   constructor() {
     super();
     this.id = "work";
@@ -283,8 +281,7 @@ class WCWork extends HTMLElement {
           ${job.url ? `<div>${job.location}</div>` : ""}
           ${job.description ? `<div>${job.description}</div>` : ""}
           ${job.summary ? `<div>${job.summary}</div>` : ""}
-          ${job.highlights ? `
-            <ul>
+          ${job.highlights ? `<ul>
               ${job.highlights.map((highlight) => `
                 <li>${highlight}</li>
               `).join("\n")}
@@ -293,11 +290,11 @@ class WCWork extends HTMLElement {
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-work", WCWork);
 
 // src/sections/wc-projects.js
-class WCProjects extends HTMLElement {
+var WCProjects = class extends HTMLElement {
   constructor() {
     super();
     this.id = "projects";
@@ -340,35 +337,27 @@ class WCProjects extends HTMLElement {
           <div style="float:left; font-weight: bold">${project.name}
             ${project.type ? `(${project.type})` : ""}
           </div>
-          ${project.startDate && project.endDate ? `
-            <div style="float:right;">${project.startDate} - ${project.endDate}</div>
-          ` : ""}
+          ${project.startDate && project.endDate ? `<div style="float:right;">${project.startDate} - ${project.endDate}</div>` : ""}
           <div style="clear:both"></div>
           ${project.url ? `<div><a href="${project.url}">${project.url}</a></div>` : ""}
           ${project.description ? `<div>${project.description}</div>` : ""}
           ${project.entity ? `<div>${project.entity}</div>` : ""}
-          ${project.roles ? `
-            <div>${project.roles.join(", ")}</div>
-          ` : ""}
-          ${project.highlights ? `
-            <ul>
+          ${project.roles ? `<div>${project.roles.join(", ")}</div>` : ""}
+          ${project.highlights ? `<ul>
               ${project.highlights.map((highlight) => `
                 <li>${highlight}</li>
               `).join("\n")}
-            </ul>
-          ` : ""}
-          ${projects.keywords ? `
-            <div>${project.keywords.join(", ")}</div>
-          ` : ""}
+            </ul>` : ""}
+          ${projects.keywords ? `<div>${project.keywords.join(", ")}</div>` : ""}
         </div>
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-projects", WCProjects);
 
 // src/sections/wc-education.js
-class WCEducation extends HTMLElement {
+var WCEducation = class extends HTMLElement {
   constructor() {
     super();
     this.id = "education";
@@ -413,22 +402,20 @@ class WCEducation extends HTMLElement {
           <div style="clear: both">${school.studyType} - ${school.area}
             ${school.gpa ? `(${school.gpa} GPA)` : ""}
           </div>
-          ${school.courses ? `
-            <ul>
-              ${school.courses.map((course) => `
-                <li>${course}</li>
-              `).join("\n")}
-            </ul>
-          ` : ""}
+          ${school.courses ? `<ul>
+                ${school.courses.map((course) => `
+                  <li>${course}</li>
+                `).join("\n")}
+              </ul>` : ""}
         </div>
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-education", WCEducation);
 
 // src/sections/wc-publications.js
-class WCPublications extends HTMLElement {
+var WCPublications = class extends HTMLElement {
   constructor() {
     super();
     this.id = "publications";
@@ -477,11 +464,11 @@ class WCPublications extends HTMLElement {
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-publications", WCPublications);
 
 // src/sections/wc-awards.js
-class WCAwards extends HTMLElement {
+var WCAwards = class extends HTMLElement {
   constructor() {
     super();
     this.id = "awards";
@@ -531,11 +518,11 @@ class WCAwards extends HTMLElement {
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-awards", WCAwards);
 
 // src/sections/wc-volunteer.js
-class WCVolunteer extends HTMLElement {
+var WCVolunteer = class extends HTMLElement {
   constructor() {
     super();
     this.id = "volunteer";
@@ -580,22 +567,20 @@ class WCVolunteer extends HTMLElement {
           <div style="clear:both"></div>
           ${role.url ? `<div><a href="${role.url}">${role.url}</a></div>` : ""}
           ${role.summary ? `<div>${role.summary}</div>` : ""}
-          ${role.highlights ? `
-            <ul>
+          ${role.highlights ? `<ul>
               ${role.highlights.map((highlight) => `
                 <li>${highlight}</li>
               `).join("\n")}
-            </ul>
-          ` : ""}
+            </ul>` : ""}
         </div>
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-volunteer", WCVolunteer);
 
 // src/sections/wc-languages.js
-class WCLanguages extends HTMLElement {
+var WCLanguages = class extends HTMLElement {
   constructor() {
     super();
     this.id = "languages";
@@ -640,11 +625,11 @@ class WCLanguages extends HTMLElement {
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-languages", WCLanguages);
 
 // src/sections/wc-interests.js
-class WCInterests extends HTMLElement {
+var WCInterests = class extends HTMLElement {
   constructor() {
     super();
     this.id = "interests";
@@ -685,18 +670,16 @@ class WCInterests extends HTMLElement {
       ${interests.map((interest) => `
         <div>
           <span style="font-weight: bold">${interest.name}:</span>
-          ${interest.keywords ? `
-            <span>[ ${interest.keywords.join(", ")} ]</span>
-          ` : ""}
+          ${interest.keywords ? `<span>[ ${interest.keywords.join(", ")} ]</span>` : ""}
         </div>
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-interests", WCInterests);
 
 // src/sections/wc-references.js
-class WCReferences extends HTMLElement {
+var WCReferences = class extends HTMLElement {
   constructor() {
     super();
     this.id = "references";
@@ -737,16 +720,16 @@ class WCReferences extends HTMLElement {
       ${references.map((reference) => `
         <blockquote>
           <p>${reference.reference}</p>
-          <footer>— <cite>${reference.name}</cite></footer>
+          <footer>\u2014 <cite>${reference.name}</cite></footer>
         </blockquote>
       `).join("\n")}
       <hr>`;
   }
-}
+};
 customElements.define("wc-references", WCReferences);
 
 // src/wc-resume.js
-class WCResume extends HTMLElement {
+var WCResume = class extends HTMLElement {
   static get observedAttributes() {
     return ["src", "data"];
   }
@@ -945,8 +928,9 @@ class WCResume extends HTMLElement {
       <wc-interests></wc-interests>
       <wc-references></wc-references>`;
   }
-}
+};
+var wc_resume_default = WCResume;
 customElements.define("wc-resume", WCResume);
 export {
-  WCResume as default
+  wc_resume_default as default
 };
