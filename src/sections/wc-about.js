@@ -1,5 +1,5 @@
 /* eslint no-undef: 0 */
-import Interpolate from '../../node_modules/@vanillaes/interpolate/index.js'
+import { interpolate } from '../../node_modules/@vanillaes/interpolate/index.js'
 
 export class WCAbout extends HTMLElement {
   constructor () {
@@ -30,7 +30,7 @@ export class WCAbout extends HTMLElement {
     if (!this.__template) {
       this.__template = WCAbout.default(tags)
     }
-    this.innerHTML = Interpolate(this.__template, tags)
+    this.innerHTML = interpolate(this.__template, tags)
   }
 
   renderNull () {
